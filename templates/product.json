@@ -3,79 +3,229 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "title": {"type": "title", "settings": {}},
-        "price": {"type": "price", "settings": {}},
-        "rating": {"type": "rating", "settings": {}},
-        "variant_picker": {"type": "variant_picker", "settings": {"picker_type": "button", "swatch_shape": "circle"}},
-        "quantity_selector": {"type": "quantity_selector", "settings": {}},
-        "buy_buttons": {"type": "buy_buttons", "settings": {"show_dynamic_checkout": true, "show_gift_card_recipient": true}},
-        "description": {"type": "description", "settings": {}}
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "Betters™ — Herbal Happiness Drops",
+            "text_style": "uppercase"
+          }
+        },
+        "title": { "type": "title", "settings": {} },
+        "price": { "type": "price", "settings": {} },
+        "rating": { "type": "rating", "settings": {} },
+        "short-desc": {
+          "type": "text",
+          "settings": {
+            "text": "A small-batch herbal bitters crafted from 6 clinically studied mood-lifting botanicals. Add 2–4 drops to any drink. Feel the difference in 7 days or your money back.",
+            "text_style": "body"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": { "type": "quantity_selector", "settings": {} },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "trust-bar": {
+          "type": "text",
+          "settings": {
+            "text": "🌿 100% Natural &nbsp;|&nbsp; 🚫 No Alcohol &nbsp;|&nbsp; 🔬 Third-Party Tested &nbsp;|&nbsp; 💚 30-Day Guarantee",
+            "text_style": "body"
+          }
+        },
+        "description": { "type": "description", "settings": {} },
+        "share": { "type": "share", "settings": { "share_label": "Share Betters" } }
       },
-      "block_order": ["title", "price", "rating", "variant_picker", "quantity_selector", "buy_buttons", "description"],
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "rating",
+        "short-desc",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "trust-bar",
+        "description",
+        "share"
+      ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_position": "left",
-        "gallery_layout": "thumbnail",
-        "media_size": "medium",
+        "gallery_layout": "thumbnail_slider",
+        "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
-        "hide_variants": true,
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
         "enable_video_looping": false,
-        "padding_top": 24,
-        "padding_bottom": 24
+        "padding_top": 48,
+        "padding_bottom": 32
       }
     },
-    "product-features": {
-      "type": "waterbuds-features",
+    "betters-product-details": {
+      "type": "betters-product-details",
       "settings": {
-        "eyebrow": "Waterproof proof points",
-        "heading": "Why HydroShell stays locked in mid-lap",
-        "subheading": "Share these bullets on the PDP so shoppers see exactly how the seal works.",
-        "feature_content": "🌊|*|Engineered IPX8 seal|*|Dual vents equalize pressure so sound stays full even underwater.||🎧|*|Three fin sizes included|*|Swap fins between Ripcurrent Blue, Ultraviolet Purple, and Midnight Black shells.||💬|*|Tap once to swap playlists|*|Oversized buttons work with swim gloves.",
-        "color_scheme": "scheme-1"
-      }
+        "formula_eyebrow": "The Formula",
+        "formula_title": "Every drop is working",
+        "formula_intro": "Most supplements hide behind 'proprietary blends' so you can't see how little of each ingredient is actually in there. Not us. Here's exactly what's in every bottle of Betters Original, and why."
+      },
+      "blocks": {
+        "ing-1": {
+          "type": "ingredient_detail",
+          "settings": {
+            "emoji": "🌿",
+            "name": "Ashwagandha Root Extract (KSM-66®)",
+            "latin": "Withania somnifera",
+            "amount": "300mg",
+            "benefit": "Clinically shown to reduce cortisol by up to 27% in stressed adults. Our dose matches the gold-standard KSM-66® trials exactly."
+          }
+        },
+        "ing-2": {
+          "type": "ingredient_detail",
+          "settings": {
+            "emoji": "💛",
+            "name": "Passionflower Aerial Extract",
+            "latin": "Passiflora incarnata",
+            "amount": "250mg",
+            "benefit": "Elevates GABA activity in the brain, quieting racing thoughts without sedation. Used medicinally since the 16th century."
+          }
+        },
+        "ing-3": {
+          "type": "ingredient_detail",
+          "settings": {
+            "emoji": "☀️",
+            "name": "Saffron Stigma Extract (Affron®)",
+            "latin": "Crocus sativus",
+            "amount": "28mg",
+            "benefit": "Shown in 3 RCTs to significantly improve mood scores vs. placebo, with effects comparable to low-dose SSRIs in mild mood imbalance."
+          }
+        },
+        "ing-4": {
+          "type": "ingredient_detail",
+          "settings": {
+            "emoji": "🍋",
+            "name": "Lemon Balm Leaf Extract",
+            "latin": "Melissa officinalis",
+            "amount": "300mg",
+            "benefit": "Reduces negative mood by 18% and increases calmness by 15% per 2014 clinical study. 2:1 concentrated extract."
+          }
+        },
+        "ing-5": {
+          "type": "ingredient_detail",
+          "settings": {
+            "emoji": "🦁",
+            "name": "Lion's Mane Mushroom (Full Spectrum)",
+            "latin": "Hericium erinaceus",
+            "amount": "500mg",
+            "benefit": "Stimulates Nerve Growth Factor (NGF), supporting neural health, focus, and reduced mild anxiety in clinical trials."
+          }
+        },
+        "ing-6": {
+          "type": "ingredient_detail",
+          "settings": {
+            "emoji": "🌸",
+            "name": "Holy Basil (Tulsi) Leaf Extract",
+            "latin": "Ocimum tenuiflorum",
+            "amount": "300mg",
+            "benefit": "Ayurvedic adaptogen shown to regulate cortisol, support adrenal function, and improve resilience to psychological stress."
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "question": "How long until I notice results?",
+            "answer": "Most people notice a shift in mood and stress levels within 7–10 days. The full effect builds over 3–4 weeks. Give it 30 days — that's why we back every order with our happiness guarantee."
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I take Betters if I'm on medication?",
+            "answer": "Always check with your healthcare provider first, especially with SSRIs, MAOIs, blood thinners, or sedatives. Email us at hello@drinketters.com for our full ingredient breakdown to share with your doctor."
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "question": "What does it taste like?",
+            "answer": "Earthy-sweet: mild bitterness up front from passionflower and holy basil, followed by a warm honey-citrus finish from saffron and lemon balm. Subtle and pleasant in water, sparkling water, or tea."
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "question": "Is Betters vegan and gluten-free?",
+            "answer": "Yes to both. No animal products, gluten, dairy, soy, or nuts. Non-GMO. No artificial flavors, colors, or preservatives. Base is organic vegetable glycerin and purified water."
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "question": "How many drops should I take?",
+            "answer": "Start with 2 drops in 8–12oz of any beverage, once daily. After one week, increase to 3–4 drops if desired. Do not exceed 6 drops per day."
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "30-day happiness guarantee, no questions asked. If you don't feel meaningfully better after 30 days, email hello@drinketters.com for a full refund. You don't even need to return the bottle."
+          }
+        }
+      },
+      "blocks_order": ["ing-1", "ing-2", "ing-3", "ing-4", "ing-5", "ing-6", "faq-1", "faq-2", "faq-3", "faq-4", "faq-5", "faq-6"]
     },
-    "product-bundles": {
-      "type": "waterbuds-bundles",
+    "betters-reviews": {
+      "type": "betters-reviews",
       "settings": {
-        "eyebrow": "Choose your pack",
-        "heading": "Free gifts unlock at 2 and 3 pairs",
-        "subheading": "Pricing stays simple: $60 for one, $100 for two, $120 for three (double the base price).",
-        "bundle_content": "Solo Set|*|$60|*|Includes HydroShell case|*|1 pair + 3 sizes of fins::Ripcurrent, Ultraviolet, or Midnight::Ready in 24h||Wave Duo|*|$100|*|+ Free waterproof carry pouch|*|Best for you + swim partner::Mix any colors::Extra memory-wire kit included||Squad Trio|*|$120|*|+ Floating dry bag & anti-fog swim cap|*|Coaches buy these for relays::Two free gifts per order::Keeps cost per pair at $40",
-        "color_scheme": "scheme-1"
-      }
+        "bg_color": "#F8F4ED",
+        "card_bg": "#FFFFFF",
+        "headline_color": "#1E3D2F",
+        "body_color": "#3D3D3D",
+        "accent_color": "#C4882E",
+        "star_color": "#C4882E",
+        "eyebrow": "Customer Reviews",
+        "title": "What people are saying",
+        "avg_rating": "4.9",
+        "review_count": "2,841"
+      },
+      "blocks": {
+        "r1": { "type": "review", "settings": { "featured": true, "badge": "Top Review", "review_text": "I've tried every supplement under the sun for anxiety. Betters is the first thing that actually made me feel like myself again. Two drops in my tea every morning and I'm a different person. My therapist even noticed.", "name": "Jamie R.", "detail": "New York, NY · Using Betters 4 months" } },
+        "r2": { "type": "review", "settings": { "featured": false, "badge": "", "review_text": "The flavor is incredible — earthy and slightly sweet. But more importantly? I stopped having that 3pm crash completely. My energy is steady all day now.", "name": "Marcus T.", "detail": "Austin, TX · Using Betters 2 months" } },
+        "r3": { "type": "review", "settings": { "featured": false, "badge": "30-Day Convert", "review_text": "I was skeptical. But after 30 days my mood is noticeably better, my sleep is deeper, and I feel genuinely calm for the first time in years.", "name": "Priya S.", "detail": "San Francisco, CA · Using Betters 3 months" } },
+        "r4": { "type": "review", "settings": { "featured": false, "badge": "", "review_text": "Got this for my husband who was going through a stressful time at work. He now buys it himself.", "name": "Lisa K.", "detail": "Chicago, IL · Gifted then subscribed" } }
+      },
+      "blocks_order": ["r1", "r2", "r3", "r4"]
     },
-    "product-reviews": {
-      "type": "waterbuds-reviews",
+    "betters-newsletter": {
+      "type": "betters-newsletter",
       "settings": {
-        "eyebrow": "Pool-tested",
-        "heading": "Swimmers who doubted us now won’t train without us",
-        "subheading": "Highlighting reviews focused on waterproof performance.",
-        "reviews_content": "Maya L.|*|Austin Masters Swim|*|\"Honestly expected them to cut out on lap one. Dunked them in my warmup bucket and the beat kept rolling.\"||Andre V.|*|Surfside, FL|*|\"Took them offshore on my paddle board. Got rolled by a wave, came up laughing because the chorus never skipped.\"||Piper G.|*|Triathlete, Bend|*|\"These live in chlorine five mornings a week. First earbuds that don’t loosen on flip turns.\"||Nina W.|*|Open water swimmer|*|\"Day one experiment: leave them submerged during recovery. Zero hiccups and the memory wire means no fidgeting.\"||Tessa P.|*|College sprinter|*|\"I was sure bone-conduction hype wasn’t real. Turns out you can actually feel bass underwater. Wild.\"||Omar D.|*|Swim teacher|*|\"Kids splash me all day so waterproofing had to deliver. It does, and the battery lasts through six lessons.\"",
-        "color_scheme": "scheme-1"
-      }
-    },
-    "related-products": {
-      "type": "related-products",
-      "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": true,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 24,
-        "padding_bottom": 80
+        "bg_color": "#F0EBE1",
+        "headline_color": "#1E3D2F",
+        "body_color": "#3D3D3D",
+        "accent_color": "#C4882E",
+        "btn_bg": "#1E3D2F",
+        "btn_text": "#F8F4ED",
+        "eyebrow": "Join 12,000+ subscribers",
+        "title": "The Betters Ritual Letter",
+        "subtitle": "Weekly herbalism wisdom, mood science, subscriber-only discounts, and first access to new Betters formulas. No fluff, no spam.",
+        "placeholder": "your@email.com",
+        "btn_label": "Subscribe free",
+        "disclaimer": "We respect your privacy. Unsubscribe at any time."
       }
     }
   },
-  "order": ["main", "product-features", "product-bundles", "product-reviews", "related-products"]
+  "order": ["main", "betters-product-details", "betters-reviews", "betters-newsletter"]
 }

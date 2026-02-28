@@ -1,0 +1,546 @@
+{% comment %} Betters — Rich Product Details (below the fold on PDP) {% endcomment %}
+
+<style>
+  .betters-pdp {
+    background: #F8F4ED;
+    padding: 80px 24px;
+  }
+
+  .betters-pdp__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── Highlights bar ── */
+  .betters-pdp__highlights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 80px;
+  }
+
+  .betters-pdp__highlight {
+    background: #fff;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    transition: background 0.2s ease;
+  }
+
+  .betters-pdp__highlight:hover { background: #F0EBE1; }
+
+  .betters-pdp__highlight-icon { font-size: 32px; }
+
+  .betters-pdp__highlight-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #1E3D2F;
+    margin: 0;
+    letter-spacing: 0.03em;
+  }
+
+  .betters-pdp__highlight-desc {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ── Formula breakdown ── */
+  .betters-pdp__formula {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-bottom: 80px;
+    align-items: start;
+  }
+
+  .betters-pdp__formula-title {
+    font-family: 'Georgia', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #1E3D2F;
+    margin: 0 0 16px;
+    line-height: 1.2;
+  }
+
+  .betters-pdp__formula-intro {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+    margin: 0 0 32px;
+  }
+
+  .betters-pdp__supplement-facts {
+    background: #fff;
+    border: 2px solid #1E3D2F;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .betters-pdp__sf-header {
+    background: #1E3D2F;
+    color: #F8F4ED;
+    padding: 16px 24px;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+  }
+
+  .betters-pdp__sf-serving {
+    padding: 12px 24px;
+    font-size: 13px;
+    color: #555;
+    border-bottom: 1px solid #eee;
+  }
+
+  .betters-pdp__sf-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+  }
+
+  .betters-pdp__sf-row:last-child { border-bottom: none; }
+
+  .betters-pdp__sf-row--header {
+    background: #f7f7f7;
+    font-weight: 700;
+    font-size: 12px;
+    color: #999;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .betters-pdp__sf-name { color: #1E3D2F; font-weight: 500; }
+  .betters-pdp__sf-latin { font-style: italic; font-size: 12px; color: #888; }
+  .betters-pdp__sf-amount { color: #C4882E; font-weight: 700; font-size: 14px; }
+
+  .betters-pdp__sf-disclaimer {
+    padding: 12px 24px;
+    font-size: 11px;
+    color: #999;
+    line-height: 1.5;
+    border-top: 1px solid #eee;
+  }
+
+  /* ── How it's made ── */
+  .betters-pdp__process {
+    margin-bottom: 80px;
+  }
+
+  .betters-pdp__process-header {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 48px;
+  }
+
+  .betters-pdp__process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .betters-pdp__process-step {
+    background: #1E3D2F;
+    padding: 40px 28px;
+    color: #F8F4ED;
+    position: relative;
+  }
+
+  .betters-pdp__process-step:nth-child(odd) { background: #2D5040; }
+
+  .betters-pdp__process-num {
+    font-family: 'Georgia', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: rgba(196,136,46,0.4);
+    display: block;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+
+  .betters-pdp__process-step h4 {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #F8F4ED;
+    margin: 0 0 12px;
+  }
+
+  .betters-pdp__process-step p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(248,244,237,0.65);
+    margin: 0;
+  }
+
+  /* ── FAQ ── */
+  .betters-pdp__faq { margin-bottom: 80px; }
+
+  .betters-pdp__faq-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .betters-pdp__faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .betters-pdp__faq-item {
+    background: #fff;
+  }
+
+  .betters-pdp__faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 24px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1E3D2F;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: background 0.2s ease;
+  }
+
+  .betters-pdp__faq-question:hover { background: #F8F4ED; }
+
+  .betters-pdp__faq-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #1E3D2F;
+    color: #F8F4ED;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 400;
+    transition: transform 0.3s ease;
+  }
+
+  .betters-pdp__faq-item.open .betters-pdp__faq-icon { transform: rotate(45deg); }
+
+  .betters-pdp__faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 28px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #555;
+  }
+
+  .betters-pdp__faq-item.open .betters-pdp__faq-answer {
+    max-height: 300px;
+    padding-bottom: 24px;
+  }
+
+  @media (max-width: 900px) {
+    .betters-pdp__highlights { grid-template-columns: repeat(2, 1fr); }
+    .betters-pdp__formula { grid-template-columns: 1fr; gap: 40px; }
+    .betters-pdp__process-steps { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .betters-pdp__highlights { grid-template-columns: 1fr 1fr; }
+    .betters-pdp__process-steps { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section class="betters-pdp">
+  <div class="betters-pdp__container">
+
+    <!-- Highlights bar -->
+    <div class="betters-pdp__highlights">
+      <div class="betters-pdp__highlight">
+        <span class="betters-pdp__highlight-icon">🌿</span>
+        <p class="betters-pdp__highlight-title">6 Active Botanicals</p>
+        <p class="betters-pdp__highlight-desc">Each at its clinically studied dose — no sprinkles</p>
+      </div>
+      <div class="betters-pdp__highlight">
+        <span class="betters-pdp__highlight-icon">🚫</span>
+        <p class="betters-pdp__highlight-title">Zero Alcohol</p>
+        <p class="betters-pdp__highlight-desc">Traditional bitters upgraded for modern wellness</p>
+      </div>
+      <div class="betters-pdp__highlight">
+        <span class="betters-pdp__highlight-icon">🔬</span>
+        <p class="betters-pdp__highlight-title">Third-Party Tested</p>
+        <p class="betters-pdp__highlight-desc">Every batch tested for purity and potency</p>
+      </div>
+      <div class="betters-pdp__highlight">
+        <span class="betters-pdp__highlight-icon">♻️</span>
+        <p class="betters-pdp__highlight-title">Glass Dropper Bottle</p>
+        <p class="betters-pdp__highlight-desc">Amber glass preserves potency. Fully recyclable.</p>
+      </div>
+    </div>
+
+    <!-- Formula breakdown -->
+    <div class="betters-pdp__formula">
+      <div>
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#C4882E;">{{ section.settings.formula_eyebrow }}</span>
+        <h2 class="betters-pdp__formula-title">{{ section.settings.formula_title }}</h2>
+        <p class="betters-pdp__formula-intro">{{ section.settings.formula_intro }}</p>
+
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px;">
+          {% for block in section.blocks %}
+            {% if block.type == 'ingredient_detail' %}
+              <li style="display:flex;gap:16px;align-items:flex-start;" {{ block.shopify_attributes }}>
+                <span style="font-size:24px;flex-shrink:0;">{{ block.settings.emoji }}</span>
+                <div>
+                  <strong style="display:block;color:#1E3D2F;font-size:15px;margin-bottom:4px;">{{ block.settings.name }} <span style="color:#C4882E;font-weight:400;font-size:13px;">({{ block.settings.amount }})</span></strong>
+                  <span style="font-size:14px;color:#555;line-height:1.6;">{{ block.settings.benefit }}</span>
+                </div>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Supplement Facts panel -->
+      <div class="betters-pdp__supplement-facts">
+        <div class="betters-pdp__sf-header">Supplement Facts</div>
+        <div class="betters-pdp__sf-serving">Serving Size: 2 drops (1ml) &nbsp;|&nbsp; Servings Per Container: 30</div>
+        <div class="betters-pdp__sf-row betters-pdp__sf-row--header">
+          <span>Ingredient</span><span>Amount Per Serving</span>
+        </div>
+        {% for block in section.blocks %}
+          {% if block.type == 'ingredient_detail' %}
+            <div class="betters-pdp__sf-row">
+              <span>
+                <span class="betters-pdp__sf-name">{{ block.settings.name }}</span><br>
+                <span class="betters-pdp__sf-latin">{{ block.settings.latin }}</span>
+              </span>
+              <span class="betters-pdp__sf-amount">{{ block.settings.amount }}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+        <div class="betters-pdp__sf-disclaimer">
+          Other ingredients: Vegetable glycerin, purified water, organic apple cider vinegar.<br>
+          Non-GMO · Gluten-Free · Vegan · No artificial flavors or preservatives.
+        </div>
+      </div>
+    </div>
+
+    <!-- How it's made -->
+    <div class="betters-pdp__process">
+      <div class="betters-pdp__process-header">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#C4882E;">Craftsmanship</span>
+        <h2 style="font-family:'Georgia',serif;font-size:36px;font-weight:400;color:#1E3D2F;margin:12px 0 0;">How Betters is made</h2>
+      </div>
+      <div class="betters-pdp__process-steps">
+        <div class="betters-pdp__process-step">
+          <span class="betters-pdp__process-num">01</span>
+          <h4>Organic herb sourcing</h4>
+          <p>Every botanical is sourced from USDA-certified organic farms. We audit each supplier annually and know every grower by name.</p>
+        </div>
+        <div class="betters-pdp__process-step">
+          <span class="betters-pdp__process-num">02</span>
+          <h4>Cold maceration</h4>
+          <p>Herbs are cold-macerated for 6–8 weeks in organic vegetable glycerin. No heat means no degradation of heat-sensitive compounds like saffron's safranal.</p>
+        </div>
+        <div class="betters-pdp__process-step">
+          <span class="betters-pdp__process-num">03</span>
+          <h4>Third-party testing</h4>
+          <p>Every batch is tested by an independent ISO-certified lab for potency, purity, heavy metals, and microbial safety before it leaves our facility.</p>
+        </div>
+        <div class="betters-pdp__process-step">
+          <span class="betters-pdp__process-num">04</span>
+          <h4>Small-batch bottling</h4>
+          <p>Filled by hand into UV-protective amber glass bottles. Never more than 500 units per run, so every bottle is as fresh as possible when it reaches you.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="betters-pdp__faq">
+      <div class="betters-pdp__faq-header">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#C4882E;">Got questions?</span>
+        <h2 style="font-family:'Georgia',serif;font-size:36px;font-weight:400;color:#1E3D2F;margin:12px 0 0;">Everything you need to know</h2>
+      </div>
+      <div class="betters-pdp__faq-list" id="betters-faq">
+        {% for block in section.blocks %}
+          {% if block.type == 'faq' %}
+            <div class="betters-pdp__faq-item" {{ block.shopify_attributes }}>
+              <button class="betters-pdp__faq-question" onclick="this.parentElement.classList.toggle('open')">
+                {{ block.settings.question }}
+                <span class="betters-pdp__faq-icon">+</span>
+              </button>
+              <div class="betters-pdp__faq-answer">{{ block.settings.answer }}</div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Betters — Product Details",
+  "settings": [
+    { "type": "text", "id": "formula_eyebrow", "label": "Formula section eyebrow", "default": "The Formula" },
+    { "type": "text", "id": "formula_title", "label": "Formula section title", "default": "Every drop is working" },
+    { "type": "textarea", "id": "formula_intro", "label": "Formula intro text", "default": "Most supplements hide behind 'proprietary blends' so you can't see how little of each ingredient is actually in there. Not us. Here's exactly what's in every bottle of Betters Original, and why." }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient_detail",
+      "name": "Ingredient (Formula)",
+      "settings": [
+        { "type": "text", "id": "emoji", "label": "Emoji", "default": "🌿" },
+        { "type": "text", "id": "name", "label": "Ingredient name", "default": "Ashwagandha Root Extract" },
+        { "type": "text", "id": "latin", "label": "Latin name", "default": "Withania somnifera" },
+        { "type": "text", "id": "amount", "label": "Amount per serving", "default": "300mg" },
+        { "type": "textarea", "id": "benefit", "label": "Benefit description", "default": "Clinically shown to reduce cortisol by up to 27% in stressed adults. Our dose matches the gold-standard KSM-66® trials." }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "How long until I notice results?" },
+        { "type": "textarea", "id": "answer", "label": "Answer", "default": "Most people notice a subtle shift in their baseline mood and stress levels within 7–10 days. The full effect builds over 3–4 weeks as the adaptogens accumulate in your system. Give it 30 days — that's why we back every order with our happiness guarantee." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Betters — Product Details",
+      "blocks": [
+        {
+          "type": "ingredient_detail",
+          "settings": {
+            "emoji": "🌿",
+            "name": "Ashwagandha Root Extract (KSM-66®)",
+            "latin": "Withania somnifera",
+            "amount": "300mg",
+            "benefit": "Clinically shown to reduce cortisol by up to 27% in stressed adults. Our dose matches the gold-standard KSM-66® trials exactly."
+          }
+        },
+        {
+          "type": "ingredient_detail",
+          "settings": {
+            "emoji": "💛",
+            "name": "Passionflower Aerial Extract",
+            "latin": "Passiflora incarnata",
+            "amount": "250mg",
+            "benefit": "Elevates GABA activity in the brain, reducing the mental 'noise' of racing thoughts without sedation. Used medicinally since the 16th century."
+          }
+        },
+        {
+          "type": "ingredient_detail",
+          "settings": {
+            "emoji": "☀️",
+            "name": "Saffron Stigma Extract (Affron®)",
+            "latin": "Crocus sativus",
+            "amount": "28mg",
+            "benefit": "The most clinically studied dose of saffron. Shown in 3 randomized controlled trials to significantly improve mood scores vs. placebo — with effects comparable to low-dose SSRIs."
+          }
+        },
+        {
+          "type": "ingredient_detail",
+          "settings": {
+            "emoji": "🍋",
+            "name": "Lemon Balm Leaf Extract",
+            "latin": "Melissa officinalis",
+            "amount": "300mg",
+            "benefit": "A 2014 study found 600mg daily reduced negative mood by 18% and increased calmness by 15%. We use a concentrated 2:1 extract, so 300mg delivers the equivalent effect."
+          }
+        },
+        {
+          "type": "ingredient_detail",
+          "settings": {
+            "emoji": "🦁",
+            "name": "Lion's Mane Mushroom (Full Spectrum)",
+            "latin": "Hericium erinaceus",
+            "amount": "500mg",
+            "benefit": "Stimulates Nerve Growth Factor (NGF), supporting the brain's ability to form new neural pathways. Associated with reduced mild anxiety and improved cognitive performance in clinical trials."
+          }
+        },
+        {
+          "type": "ingredient_detail",
+          "settings": {
+            "emoji": "🌸",
+            "name": "Holy Basil (Tulsi) Leaf Extract",
+            "latin": "Ocimum tenuiflorum",
+            "amount": "300mg",
+            "benefit": "An Ayurvedic adaptogen shown to regulate cortisol, support adrenal function, and improve resilience to psychological and physiological stress. The daily dose matches published clinical trials."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How long until I notice results?",
+            "answer": "Most people notice a subtle shift in their baseline mood and stress levels within 7–10 days. The full effect builds over 3–4 weeks as the adaptogens accumulate in your system. Give it 30 days — that's why we back every order with our happiness guarantee."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Can I take Betters if I'm on medication?",
+            "answer": "We always recommend checking with your healthcare provider before adding any supplement, especially if you take SSRIs, MAOIs, blood thinners, or sedatives. Ashwagandha and saffron can interact with certain medications. When in doubt, ask your doctor — we can also send you our full ingredient breakdown to share with them."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What does it taste like?",
+            "answer": "Betters Original has a complex, earthy-sweet flavor profile — think mild bitterness up front (from the passionflower and holy basil), followed by a warm honey-and-citrus finish from the saffron and lemon balm. Most people find it pleasant and subtle when added to water or tea. It's intentionally designed to enhance your drink, not overwhelm it."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Is Betters vegan and gluten-free?",
+            "answer": "Yes to both. Betters contains no animal products, gluten, dairy, soy, or nuts. It's also non-GMO and free of artificial flavors, colors, and preservatives. The base is organic vegetable glycerin (not alcohol) and purified water."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How many drops should I take?",
+            "answer": "Start with 2 drops in 8–12oz of any beverage, once daily. After one week, you can increase to 4 drops if you'd like a stronger effect. Most people settle at 3 drops in their morning water or evening tea. Do not exceed 6 drops per day."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "We offer a 30-day happiness guarantee, no questions asked. If you try Betters for 30 days and don't feel meaningfully better, email us at hello@drinketters.com for a full refund. You don't even need to return the bottle — we'd rather you keep it and keep trying."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Is Betters safe during pregnancy or breastfeeding?",
+            "answer": "We do not recommend Betters during pregnancy or breastfeeding without explicit approval from your OB or midwife. Several of our ingredients (including ashwagandha and saffron at high doses) have not been studied in pregnant populations, and caution is always warranted."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,164 @@
+{% comment %} Betters — Email Signup / Newsletter {% endcomment %}
+
+<style>
+  .betters-newsletter {
+    background: {{ section.settings.bg_color }};
+    padding: 80px 24px;
+  }
+
+  .betters-newsletter__container {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .betters-newsletter__eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+    margin-bottom: 20px;
+  }
+
+  .betters-newsletter__title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    color: {{ section.settings.headline_color }};
+    margin: 0 0 16px;
+    line-height: 1.2;
+  }
+
+  .betters-newsletter__subtitle {
+    font-size: 17px;
+    line-height: 1.7;
+    color: {{ section.settings.body_color }};
+    margin: 0 0 40px;
+  }
+
+  .betters-newsletter__form {
+    display: flex;
+    gap: 12px;
+    max-width: 480px;
+    margin: 0 auto 20px;
+  }
+
+  .betters-newsletter__input {
+    flex: 1;
+    padding: 16px 20px;
+    border: 2px solid rgba(30,61,47,0.15);
+    border-radius: 100px;
+    font-size: 15px;
+    background: rgba(255,255,255,0.6);
+    color: #1E3D2F;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .betters-newsletter__input::placeholder { color: #999; }
+
+  .betters-newsletter__input:focus {
+    border-color: {{ section.settings.accent_color }};
+    background: #fff;
+  }
+
+  .betters-newsletter__btn {
+    padding: 16px 28px;
+    background: {{ section.settings.btn_bg }};
+    color: {{ section.settings.btn_text }};
+    border: none;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+  }
+
+  .betters-newsletter__btn:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30,61,47,0.2);
+  }
+
+  .betters-newsletter__disclaimer {
+    font-size: 12px;
+    color: {{ section.settings.body_color }};
+    opacity: 0.55;
+  }
+
+  .betters-newsletter__perks {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .betters-newsletter__perk {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: {{ section.settings.body_color }};
+    opacity: 0.75;
+  }
+
+  @media (max-width: 600px) {
+    .betters-newsletter__form { flex-direction: column; }
+    .betters-newsletter__btn { width: 100%; }
+    .betters-newsletter__perks { flex-direction: column; align-items: center; gap: 12px; }
+  }
+</style>
+
+<section class="betters-newsletter">
+  <div class="betters-newsletter__container">
+    <span class="betters-newsletter__eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2 class="betters-newsletter__title">{{ section.settings.title }}</h2>
+    <p class="betters-newsletter__subtitle">{{ section.settings.subtitle }}</p>
+
+    {% form 'customer', class: 'betters-newsletter__form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter,betters-subscriber">
+      <input
+        class="betters-newsletter__input"
+        type="email"
+        name="contact[email]"
+        placeholder="{{ section.settings.placeholder }}"
+        required
+      >
+      <button type="submit" class="betters-newsletter__btn">{{ section.settings.btn_label }}</button>
+    {% endform %}
+
+    <p class="betters-newsletter__disclaimer">{{ section.settings.disclaimer }}</p>
+
+    <div class="betters-newsletter__perks">
+      <span class="betters-newsletter__perk">🌿 Herbalism guides & rituals</span>
+      <span class="betters-newsletter__perk">🎁 Subscriber-only discounts</span>
+      <span class="betters-newsletter__perk">🔬 New formula first access</span>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Betters — Newsletter",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#F0EBE1" },
+    { "type": "color", "id": "headline_color", "label": "Headline color", "default": "#1E3D2F" },
+    { "type": "color", "id": "body_color", "label": "Body color", "default": "#3D3D3D" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#C4882E" },
+    { "type": "color", "id": "btn_bg", "label": "Button background", "default": "#1E3D2F" },
+    { "type": "color", "id": "btn_text", "label": "Button text", "default": "#F8F4ED" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Join 12,000+ subscribers" },
+    { "type": "text", "id": "title", "label": "Title", "default": "The Betters Ritual Letter" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Weekly herbalism wisdom, mood science, subscriber-only discounts, and first access to new Betters formulas. No fluff, no spam — just things that actually help you feel better." },
+    { "type": "text", "id": "placeholder", "label": "Input placeholder", "default": "your@email.com" },
+    { "type": "text", "id": "btn_label", "label": "Button label", "default": "Subscribe free" },
+    { "type": "text", "id": "disclaimer", "label": "Disclaimer text", "default": "We respect your privacy. Unsubscribe at any time. No selling your data, ever." }
+  ],
+  "presets": [{ "name": "Betters — Newsletter" }]
+}
+{% endschema %}

@@ -11,10 +11,10 @@
         "cta_text": "#F8F4ED",
         "eyebrow": "Herbal Happiness Drops",
         "headline": "Bitter roots,[em] brighter[/em] days.",
-        "subheadline": "Betters is a small-batch herbal bitters crafted from nature's most powerful mood-lifting botanicals. A few drops a day is all it takes to feel more like yourself.",
-        "cta_primary_label": "Shop Betters",
+        "subheadline": "Betters™ is a small-batch herbal bitters crafted from nature's most powerful mood-lifting botanicals. A few drops a day is all it takes to feel more like yourself.",
+        "cta_primary_label": "Shop Betters — from $32",
         "cta_primary_url": "/collections/all",
-        "cta_secondary_label": "Learn the story",
+        "cta_secondary_label": "Read our story",
         "cta_secondary_url": "/pages/our-story"
       }
     },
@@ -32,40 +32,13 @@
         "subtitle": "The Betters formula targets three pillars of emotional wellness: calm, clarity, and joy. Each botanical was chosen for its specific, researched impact.",
         "strip_title": "Try Betters risk-free for 30 days",
         "strip_subtitle": "If you don't feel happier in 30 days, we'll give you every cent back. No questions asked.",
-        "strip_cta_label": "Claim your bottle",
+        "strip_cta_label": "Shop now — from $32",
         "strip_cta_url": "/collections/all"
       },
       "blocks": {
-        "benefit-1": {
-          "type": "benefit",
-          "settings": {
-            "icon": "🌊",
-            "title": "Calm without fog",
-            "description": "Betters soothes your nervous system without sedating you. You stay sharp, present, and engaged — just with the edge taken off anxiety and stress.",
-            "stat_number": "89%",
-            "stat_label": "reported reduced daily stress within 2 weeks"
-          }
-        },
-        "benefit-2": {
-          "type": "benefit",
-          "settings": {
-            "icon": "☀️",
-            "title": "Brighter mood",
-            "description": "Our saffron and lemon balm blend gently lifts serotonin activity and emotional tone, so you wake up looking forward to the day instead of dreading it.",
-            "stat_number": "4×",
-            "stat_label": "more likely to report improved mood vs placebo in studies"
-          }
-        },
-        "benefit-3": {
-          "type": "benefit",
-          "settings": {
-            "icon": "🧠",
-            "title": "Sharper focus",
-            "description": "Lion's Mane and ashwagandha work together to reduce cognitive load while supporting neuroplasticity. Less brain fog. More of you showing up fully.",
-            "stat_number": "14 days",
-            "stat_label": "average time to notice improved mental clarity"
-          }
-        }
+        "benefit-1": { "type": "benefit", "settings": { "icon": "🌊", "title": "Calm without fog", "description": "Betters soothes your nervous system without sedating you. You stay sharp, present, and engaged — just with the edge taken off anxiety and stress.", "stat_number": "89%", "stat_label": "reported reduced daily stress within 2 weeks" } },
+        "benefit-2": { "type": "benefit", "settings": { "icon": "☀️", "title": "Brighter mood", "description": "Our saffron and lemon balm blend gently lifts serotonin activity and emotional tone, so you wake up looking forward to the day instead of dreading it.", "stat_number": "4×", "stat_label": "more likely to report improved mood vs placebo in studies" } },
+        "benefit-3": { "type": "benefit", "settings": { "icon": "🧠", "title": "Sharper focus", "description": "Lion's Mane and ashwagandha work together to reduce cognitive load while supporting neuroplasticity. Less brain fog. More of you showing up fully.", "stat_number": "14 days", "stat_label": "average time to notice improved mental clarity" } }
       },
       "blocks_order": ["benefit-1", "benefit-2", "benefit-3"]
     },
@@ -79,69 +52,15 @@
         "accent_color": "#C4882E",
         "eyebrow": "What's Inside",
         "title": "Botanicals chosen for a reason",
-        "subtitle": "Every herb in Betters was selected for its centuries-long history of supporting mood, calm, and vitality. No fillers. No synthetic additives. Just plants."
+        "subtitle": "Every herb in Betters was selected for its centuries-long history of supporting mood, calm, and vitality. No fillers. No synthetic additives. Just plants doing what plants do best."
       },
       "blocks": {
-        "ingredient-1": {
-          "type": "ingredient",
-          "settings": {
-            "emoji": "🌿",
-            "name": "Ashwagandha",
-            "latin_name": "Withania somnifera",
-            "benefit_tag": "Stress Relief",
-            "description": "An ancient adaptogen that helps the body manage cortisol levels, reducing feelings of stress and anxiety while supporting sustained energy throughout the day."
-          }
-        },
-        "ingredient-2": {
-          "type": "ingredient",
-          "settings": {
-            "emoji": "💛",
-            "name": "Passionflower",
-            "latin_name": "Passiflora incarnata",
-            "benefit_tag": "Calm & Clarity",
-            "description": "Used for centuries to quiet a racing mind. Passionflower gently elevates GABA activity in the brain, promoting a sense of peaceful calm without drowsiness."
-          }
-        },
-        "ingredient-3": {
-          "type": "ingredient",
-          "settings": {
-            "emoji": "☀️",
-            "name": "Saffron",
-            "latin_name": "Crocus sativus",
-            "benefit_tag": "Mood Lift",
-            "description": "Clinical studies show saffron is as effective as leading antidepressants for mild mood imbalance. Known as 'sunshine in a spice', it's our star mood-lifting botanical."
-          }
-        },
-        "ingredient-4": {
-          "type": "ingredient",
-          "settings": {
-            "emoji": "🍋",
-            "name": "Lemon Balm",
-            "latin_name": "Melissa officinalis",
-            "benefit_tag": "Happiness",
-            "description": "A member of the mint family, lemon balm has been used since the Middle Ages to reduce anxiety and promote feelings of happiness. It smells amazing too."
-          }
-        },
-        "ingredient-5": {
-          "type": "ingredient",
-          "settings": {
-            "emoji": "🦁",
-            "name": "Lion's Mane",
-            "latin_name": "Hericium erinaceus",
-            "benefit_tag": "Brain Health",
-            "description": "This extraordinary mushroom stimulates Nerve Growth Factor (NGF) production, supporting neuroplasticity, focus, and a resilient, positive mindset."
-          }
-        },
-        "ingredient-6": {
-          "type": "ingredient",
-          "settings": {
-            "emoji": "🌸",
-            "name": "Holy Basil",
-            "latin_name": "Ocimum tenuiflorum",
-            "benefit_tag": "Adaptogen",
-            "description": "Revered in Ayurveda as 'The Incomparable One', Tulsi helps balance stress hormones and supports emotional resilience."
-          }
-        }
+        "ingredient-1": { "type": "ingredient", "settings": { "emoji": "🌿", "name": "Ashwagandha", "latin_name": "Withania somnifera", "benefit_tag": "Stress Relief", "description": "An ancient adaptogen that helps the body manage cortisol levels, reducing stress and anxiety while supporting sustained energy." } },
+        "ingredient-2": { "type": "ingredient", "settings": { "emoji": "💛", "name": "Passionflower", "latin_name": "Passiflora incarnata", "benefit_tag": "Calm & Clarity", "description": "Gently elevates GABA activity in the brain, promoting peaceful calm without drowsiness. Used for centuries to quiet a racing mind." } },
+        "ingredient-3": { "type": "ingredient", "settings": { "emoji": "☀️", "name": "Saffron", "latin_name": "Crocus sativus", "benefit_tag": "Mood Lift", "description": "Clinical studies show saffron is as effective as leading antidepressants for mild mood imbalance. Our star mood-lifting botanical." } },
+        "ingredient-4": { "type": "ingredient", "settings": { "emoji": "🍋", "name": "Lemon Balm", "latin_name": "Melissa officinalis", "benefit_tag": "Happiness", "description": "Used since the Middle Ages to reduce anxiety and promote feelings of happiness. Part of the mint family, and yes — it smells amazing." } },
+        "ingredient-5": { "type": "ingredient", "settings": { "emoji": "🦁", "name": "Lion's Mane", "latin_name": "Hericium erinaceus", "benefit_tag": "Brain Health", "description": "Stimulates Nerve Growth Factor (NGF), supporting neuroplasticity, mental clarity, and a resilient, positive mindset." } },
+        "ingredient-6": { "type": "ingredient", "settings": { "emoji": "🌸", "name": "Holy Basil", "latin_name": "Ocimum tenuiflorum", "benefit_tag": "Adaptogen", "description": "Revered in Ayurveda as 'The Incomparable One'. Helps balance stress hormones and supports emotional resilience." } }
       },
       "blocks_order": ["ingredient-1", "ingredient-2", "ingredient-3", "ingredient-4", "ingredient-5", "ingredient-6"]
     },
@@ -159,27 +78,9 @@
         "note": "Most people notice a difference within 7 days. Give it 30 days for the full effect — herbs work with your body over time, not against it."
       },
       "blocks": {
-        "step-1": {
-          "type": "step",
-          "settings": {
-            "step_title": "Add 2–4 drops to your drink",
-            "step_desc": "Drop Betters into water, sparkling water, juice, tea, or even a mocktail. The earthy-sweet flavor blends seamlessly with almost anything."
-          }
-        },
-        "step-2": {
-          "type": "step",
-          "settings": {
-            "step_title": "Stir, breathe, sip slowly",
-            "step_desc": "Take a moment as you stir. Smell the botanicals. The ritual of mindful preparation enhances the formula's calming effect — this is intentional."
-          }
-        },
-        "step-3": {
-          "type": "step",
-          "settings": {
-            "step_title": "Repeat daily for best results",
-            "step_desc": "Herbal adaptogens work cumulatively. Your second week feels better than your first, and your fourth week better than your second. Consistency is the key."
-          }
-        }
+        "step-1": { "type": "step", "settings": { "step_title": "Add 2–4 drops to your drink", "step_desc": "Drop Betters into water, sparkling water, juice, tea, or even a mocktail. The earthy-sweet flavor blends seamlessly with almost anything." } },
+        "step-2": { "type": "step", "settings": { "step_title": "Stir, breathe, sip slowly", "step_desc": "Take a moment as you stir. Smell the botanicals. The ritual of mindful preparation enhances the formula's calming effect — this is intentional." } },
+        "step-3": { "type": "step", "settings": { "step_title": "Repeat daily for best results", "step_desc": "Herbal adaptogens work cumulatively. Your second week feels better than your first, and your fourth week better than your second. Consistency is everything." } }
       },
       "blocks_order": ["step-1", "step-2", "step-3"]
     },
@@ -198,56 +99,11 @@
         "review_count": "2,841"
       },
       "blocks": {
-        "review-1": {
-          "type": "review",
-          "settings": {
-            "featured": true,
-            "badge": "Top Review",
-            "review_text": "I've tried every supplement under the sun for anxiety. Betters is the first thing that actually made me feel like myself again. Two drops in my tea every morning and I'm a different person. My therapist even noticed.",
-            "name": "Jamie R.",
-            "detail": "New York, NY · Using Betters 4 months"
-          }
-        },
-        "review-2": {
-          "type": "review",
-          "settings": {
-            "featured": false,
-            "badge": "",
-            "review_text": "The flavor is incredible — earthy and slightly sweet. But more importantly? I stopped having that 3pm crash completely. My energy is steady all day now.",
-            "name": "Marcus T.",
-            "detail": "Austin, TX · Using Betters 2 months"
-          }
-        },
-        "review-3": {
-          "type": "review",
-          "settings": {
-            "featured": false,
-            "badge": "30-Day Convert",
-            "review_text": "I was skeptical because I've been burned by 'natural' products before. But after 30 days my mood is noticeably better, my sleep is deeper, and I feel genuinely calm for the first time in years.",
-            "name": "Priya S.",
-            "detail": "San Francisco, CA · Using Betters 3 months"
-          }
-        },
-        "review-4": {
-          "type": "review",
-          "settings": {
-            "featured": false,
-            "badge": "",
-            "review_text": "Got this for my husband who was going through a stressful time at work. He now buys it himself. Says it's the first thing that's actually helped him decompress at the end of the day.",
-            "name": "Lisa K.",
-            "detail": "Chicago, IL · Gifted then subscribed"
-          }
-        },
-        "review-5": {
-          "type": "review",
-          "settings": {
-            "featured": false,
-            "badge": "",
-            "review_text": "As someone who studies herbal medicine, the ingredient list on Betters is genuinely impressive. The saffron + lion's mane combination is backed by some of the strongest clinical evidence I've seen.",
-            "name": "Dr. Anne W.",
-            "detail": "Portland, OR · Herbalist & customer"
-          }
-        },
+        "review-1": { "type": "review", "settings": { "featured": true, "badge": "Top Review", "review_text": "I've tried every supplement under the sun for anxiety. Betters is the first thing that actually made me feel like myself again. Two drops in my tea every morning and I'm a different person. My therapist even noticed.", "name": "Jamie R.", "detail": "New York, NY · Using Betters 4 months" } },
+        "review-2": { "type": "review", "settings": { "featured": false, "badge": "", "review_text": "The flavor is incredible — earthy and slightly sweet. But more importantly? I stopped having that 3pm crash completely. My energy is steady all day now.", "name": "Marcus T.", "detail": "Austin, TX · Using Betters 2 months" } },
+        "review-3": { "type": "review", "settings": { "featured": false, "badge": "30-Day Convert", "review_text": "I was skeptical because I've been burned by 'natural' products before. But after 30 days my mood is noticeably better, my sleep is deeper, and I feel genuinely calm for the first time in years.", "name": "Priya S.", "detail": "San Francisco, CA · Using Betters 3 months" } },
+        "review-4": { "type": "review", "settings": { "featured": false, "badge": "", "review_text": "Got this for my husband who was going through a stressful time at work. He now buys it himself. Says it's the first thing that's actually helped him decompress at the end of the day.", "name": "Lisa K.", "detail": "Chicago, IL · Gifted then subscribed" } },
+        "review-5": { "type": "review", "settings": { "featured": false, "badge": "", "review_text": "As someone who studies herbal medicine, the ingredient list on Betters is genuinely impressive. The saffron + lion's mane combination is backed by some of the strongest clinical evidence I've seen.", "name": "Dr. Anne W.", "detail": "Portland, OR · Herbalist & customer" } },
         "press-1": { "type": "press", "settings": { "outlet_name": "Well+Good" } },
         "press-2": { "type": "press", "settings": { "outlet_name": "Mindbodygreen" } },
         "press-3": { "type": "press", "settings": { "outlet_name": "Forbes Health" } },
@@ -269,51 +125,9 @@
         "subtitle": "Start with the original or go all in with a bundle. Every order ships free over $40 and is backed by our 30-day happiness guarantee."
       },
       "blocks": {
-        "bundle-1": {
-          "type": "bundle",
-          "settings": {
-            "popular": false,
-            "emoji": "🫙",
-            "name": "The Starter",
-            "tagline": "One bottle. Your first 30 days.",
-            "includes": "1 × Betters Original (30ml)|30-day supply|Ritual guide included|Free US shipping",
-            "price": "$32",
-            "was_price": "",
-            "save_label": "",
-            "cta_label": "Try Betters",
-            "sub_note": "30-day happiness guarantee"
-          }
-        },
-        "bundle-2": {
-          "type": "bundle",
-          "settings": {
-            "popular": true,
-            "emoji": "🫙🫙",
-            "name": "The Duo",
-            "tagline": "Two months of consistent joy.",
-            "includes": "2 × Betters Original (30ml)|60-day supply|Save 15% vs single bottle|Ritual guide + herb card deck|Free US shipping",
-            "price": "$54",
-            "was_price": "$64",
-            "save_label": "Save $10",
-            "cta_label": "Get the Duo",
-            "sub_note": "Most popular · Free shipping included"
-          }
-        },
-        "bundle-3": {
-          "type": "bundle",
-          "settings": {
-            "popular": false,
-            "emoji": "🫙🫙🫙",
-            "name": "The Full Ritual",
-            "tagline": "Everything you need for 4 months of feeling better.",
-            "includes": "4 × Betters Original (30ml)|4-month supply|Save 25% vs single bottle|Ritual guide + herb card deck|Priority shipping + gift box|Early access to new formulas",
-            "price": "$96",
-            "was_price": "$128",
-            "save_label": "Save 25%",
-            "cta_label": "Commit to yourself",
-            "sub_note": "Best value · Priority shipping included"
-          }
-        }
+        "bundle-1": { "type": "bundle", "settings": { "popular": false, "emoji": "🫙", "name": "The Starter", "tagline": "One bottle. Your first 30 days.", "includes": "1 × Betters Original (30ml)|30-day supply (2–4 drops daily)|Betters Ritual Guide PDF|Free US shipping over $40", "price": "$32", "was_price": "", "save_label": "", "cta_label": "Try Betters", "sub_note": "30-day happiness guarantee · No risk" } },
+        "bundle-2": { "type": "bundle", "settings": { "popular": true, "emoji": "🫙🫙", "name": "The Duo", "tagline": "Two months of consistent joy.", "includes": "2 × Betters Original (30ml)|60-day supply|Save $10 vs. two singles|Ritual Guide + Herb Card Deck|Free US shipping", "price": "$54", "was_price": "$64", "save_label": "Save $10", "cta_label": "Get the Duo", "sub_note": "Most popular · Free shipping included" } },
+        "bundle-3": { "type": "bundle", "settings": { "popular": false, "emoji": "🫙🫙🫙", "name": "The Full Ritual", "tagline": "4 months. Fully committed. Fully yourself.", "includes": "4 × Betters Original (30ml)|4-month supply|Save $32 vs. four singles|Ritual Guide + Herb Card Deck|Priority shipping + gift box|Early access to new formulas", "price": "$96", "was_price": "$128", "save_label": "Save $32", "cta_label": "Commit to yourself", "sub_note": "Best value · Priority shipping included" } }
       },
       "blocks_order": ["bundle-1", "bundle-2", "bundle-3"]
     },
@@ -326,48 +140,34 @@
         "accent_color": "#C4882E",
         "eyebrow": "Our Story",
         "pull_quote": "Happiness isn't a side effect. [strong]It's the whole point.[/strong]",
-        "founder_name": "Founder, Betters",
-        "founder_title": "Herbalist & Wellness Formulator"
+        "founder_name": "Clara Moss",
+        "founder_title": "Founder, Betters™ · Herbalist & Wellness Formulator, Austin TX"
       },
       "blocks": {
-        "para-1": {
-          "type": "body_para",
-          "settings": {
-            "text": "Betters was born out of a simple frustration: why do 'natural' mood supplements always taste like medicine and work like nothing? After years of formulating herbal remedies and watching friends struggle with anxiety, burnout, and just not feeling like themselves — we decided to build something different."
-          }
-        },
-        "para-2": {
-          "type": "body_para",
-          "settings": {
-            "text": "We went back to the original meaning of bitters — before cocktails and aperitifs, bitters were medicine. Concentrated herbal extracts designed to balance, restore, and revitalize. We kept the tradition, dropped the alcohol, and added the most potent mood-lifting botanicals science has validated."
-          }
-        },
-        "card-1": {
-          "type": "value_card",
-          "settings": {
-            "emoji": "🌱",
-            "title": "Ethically sourced",
-            "text": "Every herb is sourced from certified organic regenerative farms. We know every supplier by name."
-          }
-        },
-        "card-2": {
-          "type": "value_card",
-          "settings": {
-            "emoji": "🔬",
-            "title": "Evidence-backed",
-            "text": "Every ingredient is included at its clinically studied dose — not a proprietary-blend sprinkle."
-          }
-        },
-        "card-3": {
-          "type": "value_card",
-          "settings": {
-            "emoji": "💚",
-            "title": "No compromises",
-            "text": "Non-GMO. Gluten-free. No artificial flavors, colors, or sweeteners. Ever."
-          }
-        }
+        "para-1": { "type": "body_para", "settings": { "text": "Betters was born out of a simple frustration: why do 'natural' mood supplements always taste like medicine and work like nothing? After years of formulating herbal remedies and watching friends struggle with anxiety, burnout, and just not feeling like themselves — I decided to build something different." } },
+        "para-2": { "type": "body_para", "settings": { "text": "I went back to the original meaning of bitters. Before cocktails and aperitifs, bitters were medicine. Concentrated herbal extracts designed to balance, restore, and revitalize. I kept the tradition, dropped the alcohol, and added the most potent mood-lifting botanicals modern science has validated. That became Betters." } },
+        "card-1": { "type": "value_card", "settings": { "emoji": "🌱", "title": "Ethically sourced", "text": "Every herb is sourced from certified organic regenerative farms. We know every supplier by name." } },
+        "card-2": { "type": "value_card", "settings": { "emoji": "🔬", "title": "Evidence-backed", "text": "Every ingredient is included at its clinically studied dose — not a proprietary-blend sprinkle." } },
+        "card-3": { "type": "value_card", "settings": { "emoji": "💚", "title": "No compromises", "text": "Non-GMO. Gluten-free. No artificial flavors, colors, or sweeteners. Ever." } }
       },
       "blocks_order": ["para-1", "para-2", "card-1", "card-2", "card-3"]
+    },
+    "betters-newsletter": {
+      "type": "betters-newsletter",
+      "settings": {
+        "bg_color": "#F0EBE1",
+        "headline_color": "#1E3D2F",
+        "body_color": "#3D3D3D",
+        "accent_color": "#C4882E",
+        "btn_bg": "#1E3D2F",
+        "btn_text": "#F8F4ED",
+        "eyebrow": "Join 12,000+ subscribers",
+        "title": "The Betters Ritual Letter",
+        "subtitle": "Weekly herbalism wisdom, mood science, subscriber-only discounts, and first access to new Betters formulas. No fluff, no spam — just things that actually help you feel better.",
+        "placeholder": "your@email.com",
+        "btn_label": "Subscribe free",
+        "disclaimer": "We respect your privacy. Unsubscribe at any time. No selling your data, ever."
+      }
     }
   },
   "order": [
@@ -377,6 +177,7 @@
     "betters-ritual",
     "betters-reviews",
     "betters-bundles",
-    "betters-mission"
+    "betters-mission",
+    "betters-newsletter"
   ]
 }
