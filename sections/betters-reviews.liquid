@@ -1,0 +1,389 @@
+{% comment %} Betters — Social Proof / Reviews {% endcomment %}
+
+<style>
+  .betters-reviews {
+    background: {{ section.settings.bg_color }};
+    padding: 100px 24px;
+    overflow: hidden;
+  }
+
+  .betters-reviews__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .betters-reviews__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .betters-reviews__aggregate {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .betters-reviews__avg-score {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 64px;
+    font-weight: 400;
+    color: {{ section.settings.headline_color }};
+    line-height: 1;
+  }
+
+  .betters-reviews__stars-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .betters-reviews__stars {
+    display: flex;
+    gap: 3px;
+  }
+
+  .betters-reviews__star {
+    color: {{ section.settings.star_color }};
+    font-size: 20px;
+  }
+
+  .betters-reviews__count {
+    font-size: 14px;
+    color: {{ section.settings.body_color }};
+  }
+
+  .betters-reviews__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .betters-review-card {
+    background: {{ section.settings.card_bg }};
+    border-radius: 20px;
+    padding: 36px 32px;
+    border: 1px solid rgba(30,61,47,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .betters-review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(30,61,47,0.1);
+  }
+
+  .betters-review-card--featured {
+    background: {{ section.settings.headline_color }};
+    border-color: transparent;
+  }
+
+  .betters-review-card--featured .betters-review-card__text,
+  .betters-review-card--featured .betters-review-card__author,
+  .betters-review-card--featured .betters-review-card__detail {
+    color: #F8F4ED !important;
+  }
+
+  .betters-review-card--featured .betters-review-card__detail {
+    opacity: 0.65;
+  }
+
+  .betters-review-card__stars {
+    display: flex;
+    gap: 3px;
+    color: {{ section.settings.star_color }};
+    font-size: 16px;
+  }
+
+  .betters-review-card__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .betters-review-card__text {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.65;
+    color: {{ section.settings.headline_color }};
+    margin: 0;
+    flex: 1;
+  }
+
+  .betters-review-card__footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(30,61,47,0.08);
+  }
+
+  .betters-review-card--featured .betters-review-card__footer {
+    border-top-color: rgba(248,244,237,0.15);
+  }
+
+  .betters-review-card__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: {{ section.settings.accent_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    font-family: 'Georgia', serif;
+  }
+
+  .betters-review-card__author {
+    font-weight: 600;
+    font-size: 14px;
+    color: {{ section.settings.headline_color }};
+    margin: 0 0 3px;
+  }
+
+  .betters-review-card__detail {
+    font-size: 12px;
+    color: {{ section.settings.body_color }};
+    margin: 0;
+    opacity: 0.7;
+  }
+
+  .betters-review-card__verified {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 600;
+    color: #5B9E6E;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .betters-reviews__press {
+    margin-top: 72px;
+    text-align: center;
+  }
+
+  .betters-reviews__press-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: {{ section.settings.body_color }};
+    opacity: 0.5;
+    margin-bottom: 28px;
+  }
+
+  .betters-reviews__press-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .betters-reviews__press-logo {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: {{ section.settings.body_color }};
+    opacity: 0.3;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .betters-reviews__header { flex-direction: column; align-items: flex-start; }
+    .betters-reviews__press-logos { gap: 28px; }
+  }
+</style>
+
+<section class="betters-reviews">
+  <div class="betters-reviews__container">
+    <div class="betters-reviews__header">
+      <div>
+        <span class="betters-section-label" style="color: {{ section.settings.accent_color }};">{{ section.settings.eyebrow }}</span>
+        <h2 class="betters-section-title" style="color: {{ section.settings.headline_color }}; margin: 0;">{{ section.settings.title }}</h2>
+      </div>
+      <div class="betters-reviews__aggregate">
+        <span class="betters-reviews__avg-score">{{ section.settings.avg_rating }}</span>
+        <div class="betters-reviews__stars-meta">
+          <div class="betters-reviews__stars">
+            <span class="betters-review-card__star">★</span>
+            <span class="betters-review-card__star">★</span>
+            <span class="betters-review-card__star">★</span>
+            <span class="betters-review-card__star">★</span>
+            <span class="betters-review-card__star">★</span>
+          </div>
+          <span class="betters-reviews__count">{{ section.settings.review_count }} verified reviews</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="betters-reviews__grid">
+      {% for block in section.blocks %}
+        <div class="betters-review-card{% if block.settings.featured %} betters-review-card--featured{% endif %}" {{ block.shopify_attributes }}>
+          <div class="betters-review-card__stars">
+            ★★★★★
+          </div>
+          {% if block.settings.badge != blank %}
+            <span class="betters-review-card__badge">
+              ✦ {{ block.settings.badge }}
+            </span>
+          {% endif %}
+          <blockquote class="betters-review-card__text">
+            "{{ block.settings.review_text }}"
+          </blockquote>
+          <div class="betters-review-card__footer">
+            <div class="betters-review-card__avatar">{{ block.settings.name | slice: 0 }}</div>
+            <div>
+              <p class="betters-review-card__author">{{ block.settings.name }}</p>
+              <p class="betters-review-card__detail">{{ block.settings.detail }}</p>
+            </div>
+            <span class="betters-review-card__verified">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                <path d="M6 0L7.5 2.5L10.5 1.5L10 4.5L12 6L10 7.5L10.5 10.5L7.5 9.5L6 12L4.5 9.5L1.5 10.5L2 7.5L0 6L2 4.5L1.5 1.5L4.5 2.5L6 0Z"/>
+              </svg>
+              Verified
+            </span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="betters-reviews__press">
+      <p class="betters-reviews__press-label">As featured in</p>
+      <div class="betters-reviews__press-logos">
+        {% for block in section.blocks %}
+          {% if block.type == 'press' %}
+            <span class="betters-reviews__press-logo">{{ block.settings.outlet_name }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Betters — Reviews",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#F8F4ED" },
+    { "type": "color", "id": "card_bg", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "headline_color", "label": "Headline color", "default": "#1E3D2F" },
+    { "type": "color", "id": "body_color", "label": "Body color", "default": "#3D3D3D" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#C4882E" },
+    { "type": "color", "id": "star_color", "label": "Star color", "default": "#C4882E" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Real Stories" },
+    { "type": "text", "id": "title", "label": "Section title", "default": "People are feeling better" },
+    { "type": "text", "id": "avg_rating", "label": "Average rating (display)", "default": "4.9" },
+    { "type": "text", "id": "review_count", "label": "Review count", "default": "2,841" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "checkbox", "id": "featured", "label": "Featured (dark card)", "default": false },
+        { "type": "text", "id": "badge", "label": "Badge (optional)", "default": "" },
+        { "type": "textarea", "id": "review_text", "label": "Review text", "default": "I was skeptical at first but after two weeks of Betters in my morning water I genuinely woke up in a good mood. Not a fake mood, a real one." },
+        { "type": "text", "id": "name", "label": "Reviewer name", "default": "Sarah M." },
+        { "type": "text", "id": "detail", "label": "Detail (city, use case, etc.)", "default": "Miami, FL · Using Betters 6 months" }
+      ]
+    },
+    {
+      "type": "press",
+      "name": "Press mention",
+      "settings": [
+        { "type": "text", "id": "outlet_name", "label": "Publication name", "default": "Vogue" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Betters — Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "featured": true,
+            "badge": "Top Review",
+            "review_text": "I've tried every supplement under the sun for anxiety. Betters is the first thing that actually made me feel like myself again. Two drops in my tea every morning and I'm a different person. My therapist even noticed.",
+            "name": "Jamie R.",
+            "detail": "New York, NY · Using Betters 4 months"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "badge": "",
+            "review_text": "The flavor is incredible — earthy and slightly sweet. But more importantly? I stopped having that 3pm crash completely. My energy is steady all day now.",
+            "name": "Marcus T.",
+            "detail": "Austin, TX · Using Betters 2 months"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "badge": "30-Day Convert",
+            "review_text": "I was skeptical because I've been burned by 'natural' products before. But after 30 days my mood is noticeably better, my sleep is deeper, and I feel genuinely calm for the first time in years.",
+            "name": "Priya S.",
+            "detail": "San Francisco, CA · Using Betters 3 months"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "badge": "",
+            "review_text": "Got this for my husband who was going through a stressful time at work. He now buys it himself. Says it's the first thing that's actually helped him decompress at the end of the day.",
+            "name": "Lisa K.",
+            "detail": "Chicago, IL · Gifted then subscribed"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "badge": "",
+            "review_text": "As someone who studies herbal medicine, the ingredient list on Betters is genuinely impressive. The saffron + lion's mane combination is backed by some of the strongest clinical evidence I've seen.",
+            "name": "Dr. Anne W.",
+            "detail": "Portland, OR · Herbalist & customer"
+          }
+        },
+        {
+          "type": "press",
+          "settings": { "outlet_name": "Well+Good" }
+        },
+        {
+          "type": "press",
+          "settings": { "outlet_name": "Mindbodygreen" }
+        },
+        {
+          "type": "press",
+          "settings": { "outlet_name": "Forbes Health" }
+        },
+        {
+          "type": "press",
+          "settings": { "outlet_name": "Shape" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

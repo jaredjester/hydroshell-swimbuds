@@ -1,60 +1,382 @@
 {
   "sections": {
-    "hero": {
-      "type": "waterbuds-hero",
+    "betters-hero": {
+      "type": "betters-hero",
       "settings": {
-        "eyebrow": "IPX8 waterproof",
-        "heading": "HydroShell™ SwimBuds",
-        "subheading": "Waterproof earphones that snap behind your ear, pump playlists through every lap, and survive rinse-and-repeat training days.",
-        "price_copy": "$60 / pair",
-        "primary_label": "Shop SwimBuds",
-        "primary_link": "/products/hydroshell-swimbuds",
-        "secondary_label": "See bundle offer",
-        "secondary_link": "#bundle-offer",
-        "script_heading": "Pool deck script",
-        "script_text": "“You thought waterproof buds were a myth? Dunk these, shake them, press play, and meet me at the flags.”",
-        "color_scheme": "scheme-4"
+        "bg_color": "#F8F4ED",
+        "headline_color": "#1E3D2F",
+        "body_color": "#3D3D3D",
+        "accent_color": "#C4882E",
+        "cta_bg": "#1E3D2F",
+        "cta_text": "#F8F4ED",
+        "eyebrow": "Herbal Happiness Drops",
+        "headline": "Bitter roots,[em] brighter[/em] days.",
+        "subheadline": "Betters is a small-batch herbal bitters crafted from nature's most powerful mood-lifting botanicals. A few drops a day is all it takes to feel more like yourself.",
+        "cta_primary_label": "Shop Betters",
+        "cta_primary_url": "/collections/all",
+        "cta_secondary_label": "Learn the story",
+        "cta_secondary_url": "/pages/our-story"
       }
     },
-    "lifestyle": {
-      "type": "waterbuds-lifestyle",
+    "betters-benefits": {
+      "type": "betters-benefits",
       "settings": {
-        "eyebrow": "See them in the water",
-        "heading": "Made for swimmers, surfers, and rain runners",
-        "subheading": "Use the included photography (two swimmer shots) or swap them in Shopify’s theme editor for your own team.",
-        "color_scheme": "scheme-1"
-      }
+        "bg_color": "#F8F4ED",
+        "tile_bg": "#FFFFFF",
+        "tile_hover_bg": "#F0EBE1",
+        "headline_color": "#1E3D2F",
+        "body_color": "#3D3D3D",
+        "accent_color": "#C4882E",
+        "eyebrow": "Why it works",
+        "title": "Feel the difference",
+        "subtitle": "The Betters formula targets three pillars of emotional wellness: calm, clarity, and joy. Each botanical was chosen for its specific, researched impact.",
+        "strip_title": "Try Betters risk-free for 30 days",
+        "strip_subtitle": "If you don't feel happier in 30 days, we'll give you every cent back. No questions asked.",
+        "strip_cta_label": "Claim your bottle",
+        "strip_cta_url": "/collections/all"
+      },
+      "blocks": {
+        "benefit-1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🌊",
+            "title": "Calm without fog",
+            "description": "Betters soothes your nervous system without sedating you. You stay sharp, present, and engaged — just with the edge taken off anxiety and stress.",
+            "stat_number": "89%",
+            "stat_label": "reported reduced daily stress within 2 weeks"
+          }
+        },
+        "benefit-2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "☀️",
+            "title": "Brighter mood",
+            "description": "Our saffron and lemon balm blend gently lifts serotonin activity and emotional tone, so you wake up looking forward to the day instead of dreading it.",
+            "stat_number": "4×",
+            "stat_label": "more likely to report improved mood vs placebo in studies"
+          }
+        },
+        "benefit-3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🧠",
+            "title": "Sharper focus",
+            "description": "Lion's Mane and ashwagandha work together to reduce cognitive load while supporting neuroplasticity. Less brain fog. More of you showing up fully.",
+            "stat_number": "14 days",
+            "stat_label": "average time to notice improved mental clarity"
+          }
+        }
+      },
+      "blocks_order": ["benefit-1", "benefit-2", "benefit-3"]
     },
-    "features": {
-      "type": "waterbuds-features",
+    "betters-ingredients": {
+      "type": "betters-ingredients",
       "settings": {
-        "eyebrow": "Built for open water",
-        "heading": "Swim, sprint, and shower with music",
-        "subheading": "Every component is sealed, balanced, and tuned to stay put when you flip-turn.",
-        "feature_content": "🌊|*|IPX8 hydrophobic shell|*|Nanocoated drivers and dual-seal vents keep water out even 2 meters deep for 30+ minutes.||🔒|*|Memory-wire wing|*|Soft titanium memory wire locks behind your ear so dives, flip turns, and sprints never shake them loose.||🔋|*|8-hour battery underwater|*|Mag-Lock charge case tops you up between heats; 10-minute quick charge = 2 laps of audio.",
-        "color_scheme": "scheme-1"
-      }
+        "bg_color": "#F8F4ED",
+        "card_bg": "#FFFFFF",
+        "headline_color": "#1E3D2F",
+        "body_color": "#3D3D3D",
+        "accent_color": "#C4882E",
+        "eyebrow": "What's Inside",
+        "title": "Botanicals chosen for a reason",
+        "subtitle": "Every herb in Betters was selected for its centuries-long history of supporting mood, calm, and vitality. No fillers. No synthetic additives. Just plants."
+      },
+      "blocks": {
+        "ingredient-1": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🌿",
+            "name": "Ashwagandha",
+            "latin_name": "Withania somnifera",
+            "benefit_tag": "Stress Relief",
+            "description": "An ancient adaptogen that helps the body manage cortisol levels, reducing feelings of stress and anxiety while supporting sustained energy throughout the day."
+          }
+        },
+        "ingredient-2": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "💛",
+            "name": "Passionflower",
+            "latin_name": "Passiflora incarnata",
+            "benefit_tag": "Calm & Clarity",
+            "description": "Used for centuries to quiet a racing mind. Passionflower gently elevates GABA activity in the brain, promoting a sense of peaceful calm without drowsiness."
+          }
+        },
+        "ingredient-3": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "☀️",
+            "name": "Saffron",
+            "latin_name": "Crocus sativus",
+            "benefit_tag": "Mood Lift",
+            "description": "Clinical studies show saffron is as effective as leading antidepressants for mild mood imbalance. Known as 'sunshine in a spice', it's our star mood-lifting botanical."
+          }
+        },
+        "ingredient-4": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🍋",
+            "name": "Lemon Balm",
+            "latin_name": "Melissa officinalis",
+            "benefit_tag": "Happiness",
+            "description": "A member of the mint family, lemon balm has been used since the Middle Ages to reduce anxiety and promote feelings of happiness. It smells amazing too."
+          }
+        },
+        "ingredient-5": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🦁",
+            "name": "Lion's Mane",
+            "latin_name": "Hericium erinaceus",
+            "benefit_tag": "Brain Health",
+            "description": "This extraordinary mushroom stimulates Nerve Growth Factor (NGF) production, supporting neuroplasticity, focus, and a resilient, positive mindset."
+          }
+        },
+        "ingredient-6": {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🌸",
+            "name": "Holy Basil",
+            "latin_name": "Ocimum tenuiflorum",
+            "benefit_tag": "Adaptogen",
+            "description": "Revered in Ayurveda as 'The Incomparable One', Tulsi helps balance stress hormones and supports emotional resilience."
+          }
+        }
+      },
+      "blocks_order": ["ingredient-1", "ingredient-2", "ingredient-3", "ingredient-4", "ingredient-5", "ingredient-6"]
     },
-    "bundles": {
-      "type": "waterbuds-bundles",
+    "betters-ritual": {
+      "type": "betters-ritual",
       "settings": {
-        "eyebrow": "Bundle & save",
-        "heading": "Team packs that ship with free swim gifts",
-        "subheading": "Mix colors per pack. Gifts ship automatically so you can open, sync, and dive in.",
-        "bundle_content": "Solo Set|*|$60|*|Includes HydroShell case|*|1 pair + 3 sizes of fins::Ideal for new swimmers::Ships in 24h||Wave Duo|*|$100|*|+ Free waterproof carry pouch|*|2 pairs + 2 magnetic cables::Perfect for you + training partner::Add mix-and-match colors||Squad Trio|*|$120|*|+ Floating dry bag & anti-fog swim cap|*|3 pairs (double price keeps cost per pair at $40)::Free gifts bundled for relays::Coaches love for prize packs",
-        "color_scheme": "scheme-1"
-      }
+        "bg_color": "#1E3D2F",
+        "card_bg": "#2D5040",
+        "headline_color": "#F8F4ED",
+        "body_color": "#C8BFA8",
+        "accent_color": "#C4882E",
+        "eyebrow": "Your Daily Practice",
+        "title": "How to use Betters",
+        "subtitle": "A consistent ritual is where the magic happens. Three simple steps — morning or night, however your body calls.",
+        "note": "Most people notice a difference within 7 days. Give it 30 days for the full effect — herbs work with your body over time, not against it."
+      },
+      "blocks": {
+        "step-1": {
+          "type": "step",
+          "settings": {
+            "step_title": "Add 2–4 drops to your drink",
+            "step_desc": "Drop Betters into water, sparkling water, juice, tea, or even a mocktail. The earthy-sweet flavor blends seamlessly with almost anything."
+          }
+        },
+        "step-2": {
+          "type": "step",
+          "settings": {
+            "step_title": "Stir, breathe, sip slowly",
+            "step_desc": "Take a moment as you stir. Smell the botanicals. The ritual of mindful preparation enhances the formula's calming effect — this is intentional."
+          }
+        },
+        "step-3": {
+          "type": "step",
+          "settings": {
+            "step_title": "Repeat daily for best results",
+            "step_desc": "Herbal adaptogens work cumulatively. Your second week feels better than your first, and your fourth week better than your second. Consistency is the key."
+          }
+        }
+      },
+      "blocks_order": ["step-1", "step-2", "step-3"]
     },
-    "reviews": {
-      "type": "waterbuds-reviews",
+    "betters-reviews": {
+      "type": "betters-reviews",
       "settings": {
-        "eyebrow": "Real swimmers",
-        "heading": "12 people who tried to drown them first",
-        "subheading": "Most people doubted waterproof audio. Now they log laps with playlists instead of counting tiles.",
-        "reviews_content": "Maya L.|*|Austin Masters Swim|*|\"Honestly expected them to cut out on lap one. Dunked them in my warmup bucket and the beat kept rolling so I clicked buy for my relay team.\"||Andre V.|*|Surfside, FL|*|\"Took them offshore on my paddle board. Got rolled by a wave, came up laughing because the chorus never skipped.\"||Piper G.|*|Triathlete, Bend|*|\"These live in chlorine five mornings a week. First earbuds that don’t loosen on flip turns.\"||Nico R.|*|Brooklyn Lap Club|*|\"Thought the marketing was hype so I swam with a spare pair in case they died. Joke’s on me—I gave the spare away because HydroShell survived.\"||Jules A.|*|Lifeguard, San Diego|*|\"They handle sunscreen, salt, and surprise dives off the tower. Customers ask about them daily.\"||Selene T.|*|Swim mom|*|\"Bought ‘em for my teen who hates boring sets. Now she races me to the pool because she wants her playlist.\"||Marcus C.|*|YMCA Coach|*|\"Team pack deal is clutch. We hand the free floating bag to fastest relay every Friday.\"||Nina W.|*|Open water swimmer|*|\"Day one experiment: leave them submerged during recovery. Zero hiccups and the memory wire means no fidgeting.\"||Tessa P.|*|College sprinter|*|\"I was sure bone-conduction hype wasn’t real. Turns out you can actually feel bass underwater. Wild.\"||Harry B.|*|Lap lane rebel|*|\"No more soggy headphones. Put them through the washer accidentally, still work.\"||Omar D.|*|Swim teacher|*|\"Kids splash me all day so waterproofing had to deliver. It does, and the battery lasts through six lessons.\"||Rina K.|*|Tokyo night swimmer|*|\"Purple set matches my suit and I can finally zen out without counting strokes in my head.\"",
-        "color_scheme": "scheme-1"
-      }
+        "bg_color": "#F8F4ED",
+        "card_bg": "#FFFFFF",
+        "headline_color": "#1E3D2F",
+        "body_color": "#3D3D3D",
+        "accent_color": "#C4882E",
+        "star_color": "#C4882E",
+        "eyebrow": "Real Stories",
+        "title": "People are feeling better",
+        "avg_rating": "4.9",
+        "review_count": "2,841"
+      },
+      "blocks": {
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "featured": true,
+            "badge": "Top Review",
+            "review_text": "I've tried every supplement under the sun for anxiety. Betters is the first thing that actually made me feel like myself again. Two drops in my tea every morning and I'm a different person. My therapist even noticed.",
+            "name": "Jamie R.",
+            "detail": "New York, NY · Using Betters 4 months"
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "badge": "",
+            "review_text": "The flavor is incredible — earthy and slightly sweet. But more importantly? I stopped having that 3pm crash completely. My energy is steady all day now.",
+            "name": "Marcus T.",
+            "detail": "Austin, TX · Using Betters 2 months"
+          }
+        },
+        "review-3": {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "badge": "30-Day Convert",
+            "review_text": "I was skeptical because I've been burned by 'natural' products before. But after 30 days my mood is noticeably better, my sleep is deeper, and I feel genuinely calm for the first time in years.",
+            "name": "Priya S.",
+            "detail": "San Francisco, CA · Using Betters 3 months"
+          }
+        },
+        "review-4": {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "badge": "",
+            "review_text": "Got this for my husband who was going through a stressful time at work. He now buys it himself. Says it's the first thing that's actually helped him decompress at the end of the day.",
+            "name": "Lisa K.",
+            "detail": "Chicago, IL · Gifted then subscribed"
+          }
+        },
+        "review-5": {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "badge": "",
+            "review_text": "As someone who studies herbal medicine, the ingredient list on Betters is genuinely impressive. The saffron + lion's mane combination is backed by some of the strongest clinical evidence I've seen.",
+            "name": "Dr. Anne W.",
+            "detail": "Portland, OR · Herbalist & customer"
+          }
+        },
+        "press-1": { "type": "press", "settings": { "outlet_name": "Well+Good" } },
+        "press-2": { "type": "press", "settings": { "outlet_name": "Mindbodygreen" } },
+        "press-3": { "type": "press", "settings": { "outlet_name": "Forbes Health" } },
+        "press-4": { "type": "press", "settings": { "outlet_name": "Shape" } }
+      },
+      "blocks_order": ["review-1", "review-2", "review-3", "review-4", "review-5", "press-1", "press-2", "press-3", "press-4"]
+    },
+    "betters-bundles": {
+      "type": "betters-bundles",
+      "settings": {
+        "bg_color": "#1E3D2F",
+        "card_bg": "#F8F4ED",
+        "img_bg": "#2D5040",
+        "headline_color": "#1E3D2F",
+        "body_color": "#3D3D3D",
+        "accent_color": "#C4882E",
+        "eyebrow": "Shop Betters",
+        "title": "Find your ritual",
+        "subtitle": "Start with the original or go all in with a bundle. Every order ships free over $40 and is backed by our 30-day happiness guarantee."
+      },
+      "blocks": {
+        "bundle-1": {
+          "type": "bundle",
+          "settings": {
+            "popular": false,
+            "emoji": "🫙",
+            "name": "The Starter",
+            "tagline": "One bottle. Your first 30 days.",
+            "includes": "1 × Betters Original (30ml)|30-day supply|Ritual guide included|Free US shipping",
+            "price": "$32",
+            "was_price": "",
+            "save_label": "",
+            "cta_label": "Try Betters",
+            "sub_note": "30-day happiness guarantee"
+          }
+        },
+        "bundle-2": {
+          "type": "bundle",
+          "settings": {
+            "popular": true,
+            "emoji": "🫙🫙",
+            "name": "The Duo",
+            "tagline": "Two months of consistent joy.",
+            "includes": "2 × Betters Original (30ml)|60-day supply|Save 15% vs single bottle|Ritual guide + herb card deck|Free US shipping",
+            "price": "$54",
+            "was_price": "$64",
+            "save_label": "Save $10",
+            "cta_label": "Get the Duo",
+            "sub_note": "Most popular · Free shipping included"
+          }
+        },
+        "bundle-3": {
+          "type": "bundle",
+          "settings": {
+            "popular": false,
+            "emoji": "🫙🫙🫙",
+            "name": "The Full Ritual",
+            "tagline": "Everything you need for 4 months of feeling better.",
+            "includes": "4 × Betters Original (30ml)|4-month supply|Save 25% vs single bottle|Ritual guide + herb card deck|Priority shipping + gift box|Early access to new formulas",
+            "price": "$96",
+            "was_price": "$128",
+            "save_label": "Save 25%",
+            "cta_label": "Commit to yourself",
+            "sub_note": "Best value · Priority shipping included"
+          }
+        }
+      },
+      "blocks_order": ["bundle-1", "bundle-2", "bundle-3"]
+    },
+    "betters-mission": {
+      "type": "betters-mission",
+      "settings": {
+        "bg_color": "#F8F4ED",
+        "headline_color": "#1E3D2F",
+        "body_color": "#3D3D3D",
+        "accent_color": "#C4882E",
+        "eyebrow": "Our Story",
+        "pull_quote": "Happiness isn't a side effect. [strong]It's the whole point.[/strong]",
+        "founder_name": "Founder, Betters",
+        "founder_title": "Herbalist & Wellness Formulator"
+      },
+      "blocks": {
+        "para-1": {
+          "type": "body_para",
+          "settings": {
+            "text": "Betters was born out of a simple frustration: why do 'natural' mood supplements always taste like medicine and work like nothing? After years of formulating herbal remedies and watching friends struggle with anxiety, burnout, and just not feeling like themselves — we decided to build something different."
+          }
+        },
+        "para-2": {
+          "type": "body_para",
+          "settings": {
+            "text": "We went back to the original meaning of bitters — before cocktails and aperitifs, bitters were medicine. Concentrated herbal extracts designed to balance, restore, and revitalize. We kept the tradition, dropped the alcohol, and added the most potent mood-lifting botanicals science has validated."
+          }
+        },
+        "card-1": {
+          "type": "value_card",
+          "settings": {
+            "emoji": "🌱",
+            "title": "Ethically sourced",
+            "text": "Every herb is sourced from certified organic regenerative farms. We know every supplier by name."
+          }
+        },
+        "card-2": {
+          "type": "value_card",
+          "settings": {
+            "emoji": "🔬",
+            "title": "Evidence-backed",
+            "text": "Every ingredient is included at its clinically studied dose — not a proprietary-blend sprinkle."
+          }
+        },
+        "card-3": {
+          "type": "value_card",
+          "settings": {
+            "emoji": "💚",
+            "title": "No compromises",
+            "text": "Non-GMO. Gluten-free. No artificial flavors, colors, or sweeteners. Ever."
+          }
+        }
+      },
+      "blocks_order": ["para-1", "para-2", "card-1", "card-2", "card-3"]
     }
   },
-  "order": ["hero", "lifestyle", "features", "bundles", "reviews"]
+  "order": [
+    "betters-hero",
+    "betters-benefits",
+    "betters-ingredients",
+    "betters-ritual",
+    "betters-reviews",
+    "betters-bundles",
+    "betters-mission"
+  ]
 }

@@ -1,0 +1,242 @@
+{% comment %} Betters — Featured Botanicals / Ingredients {% endcomment %}
+
+<style>
+  .betters-ingredients {
+    background: {{ section.settings.bg_color }};
+    padding: 100px 24px;
+  }
+
+  .betters-ingredients__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .betters-ingredients__header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 72px;
+  }
+
+  .betters-section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+    margin-bottom: 20px;
+  }
+
+  .betters-section-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: {{ section.settings.headline_color }};
+    margin: 0 0 20px;
+  }
+
+  .betters-section-body {
+    font-size: 17px;
+    line-height: 1.75;
+    color: {{ section.settings.body_color }};
+  }
+
+  .betters-ingredients__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 28px;
+  }
+
+  .betters-ingredient-card {
+    background: {{ section.settings.card_bg }};
+    border-radius: 20px;
+    padding: 40px 32px;
+    border: 1px solid rgba(30, 61, 47, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .betters-ingredient-card::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: {{ section.settings.accent_color }};
+    opacity: 0.06;
+    transition: opacity 0.3s ease;
+  }
+
+  .betters-ingredient-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(30, 61, 47, 0.12);
+  }
+
+  .betters-ingredient-card:hover::before {
+    opacity: 0.12;
+  }
+
+  .betters-ingredient-card__icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .betters-ingredient-card__name {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: {{ section.settings.headline_color }};
+    margin: 0 0 8px;
+  }
+
+  .betters-ingredient-card__latin {
+    font-size: 12px;
+    font-style: italic;
+    color: {{ section.settings.accent_color }};
+    margin: 0 0 16px;
+    letter-spacing: 0.05em;
+  }
+
+  .betters-ingredient-card__benefit {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: {{ section.settings.bg_color }};
+    background: {{ section.settings.headline_color }};
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+
+  .betters-ingredient-card__desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: {{ section.settings.body_color }};
+    margin: 0;
+  }
+</style>
+
+<section class="betters-ingredients">
+  <div class="betters-ingredients__container">
+    <div class="betters-ingredients__header">
+      <span class="betters-section-label">{{ section.settings.eyebrow }}</span>
+      <h2 class="betters-section-title">{{ section.settings.title }}</h2>
+      <p class="betters-section-body">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="betters-ingredients__grid">
+      {% for block in section.blocks %}
+        <div class="betters-ingredient-card" {{ block.shopify_attributes }}>
+          <span class="betters-ingredient-card__icon">{{ block.settings.emoji }}</span>
+          <h3 class="betters-ingredient-card__name">{{ block.settings.name }}</h3>
+          <p class="betters-ingredient-card__latin">{{ block.settings.latin_name }}</p>
+          <span class="betters-ingredient-card__benefit">{{ block.settings.benefit_tag }}</span>
+          <p class="betters-ingredient-card__desc">{{ block.settings.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Betters — Ingredients",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#F8F4ED" },
+    { "type": "color", "id": "card_bg", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "headline_color", "label": "Headline color", "default": "#1E3D2F" },
+    { "type": "color", "id": "body_color", "label": "Body color", "default": "#3D3D3D" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#C4882E" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What's Inside" },
+    { "type": "text", "id": "title", "label": "Section title", "default": "Botanicals chosen for a reason" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Every herb in Betters was selected for its centuries-long history of supporting mood, calm, and vitality. No fillers. No synthetic additives. Just plants doing what plants do best." }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "type": "text", "id": "emoji", "label": "Emoji icon", "default": "🌿" },
+        { "type": "text", "id": "name", "label": "Herb name", "default": "Ashwagandha" },
+        { "type": "text", "id": "latin_name", "label": "Latin name", "default": "Withania somnifera" },
+        { "type": "text", "id": "benefit_tag", "label": "Benefit tag", "default": "Stress Relief" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "An ancient adaptogen that helps the body manage cortisol levels, reducing feelings of stress and anxiety while supporting sustained energy throughout the day." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Betters — Ingredients",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🌿",
+            "name": "Ashwagandha",
+            "latin_name": "Withania somnifera",
+            "benefit_tag": "Stress Relief",
+            "description": "An ancient adaptogen that helps the body manage cortisol levels, reducing feelings of stress and anxiety while supporting sustained energy throughout the day."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "💛",
+            "name": "Passionflower",
+            "latin_name": "Passiflora incarnata",
+            "benefit_tag": "Calm & Clarity",
+            "description": "Used for centuries to quiet a racing mind. Passionflower gently elevates GABA activity in the brain, promoting a sense of peaceful calm without drowsiness."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "☀️",
+            "name": "Saffron",
+            "latin_name": "Crocus sativus",
+            "benefit_tag": "Mood Lift",
+            "description": "Clinical studies show saffron is as effective as leading antidepressants for mild mood imbalance. Known as 'sunshine in a spice', it's our star mood-lifting botanical."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🍋",
+            "name": "Lemon Balm",
+            "latin_name": "Melissa officinalis",
+            "benefit_tag": "Happiness",
+            "description": "A member of the mint family, lemon balm has been used since the Middle Ages to reduce anxiety and promote feelings of happiness. It smells amazing too."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🦁",
+            "name": "Lion's Mane",
+            "latin_name": "Hericium erinaceus",
+            "benefit_tag": "Brain Health",
+            "description": "This extraordinary mushroom stimulates Nerve Growth Factor (NGF) production, supporting neuroplasticity, focus, and a resilient, positive mindset."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "emoji": "🌸",
+            "name": "Holy Basil",
+            "latin_name": "Ocimum tenuiflorum",
+            "benefit_tag": "Adaptogen",
+            "description": "Revered in Ayurveda as 'The Incomparable One', Tulsi helps balance stress hormones and supports emotional resilience, helping you feel steady no matter what life throws."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

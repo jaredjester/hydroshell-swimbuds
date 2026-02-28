@@ -1,0 +1,369 @@
+{% comment %} Betters — Product Bundles / Shop Section {% endcomment %}
+
+<style>
+  .betters-bundles {
+    background: {{ section.settings.bg_color }};
+    padding: 100px 24px;
+  }
+
+  .betters-bundles__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .betters-bundles__header {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 64px;
+  }
+
+  .betters-bundles__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+    align-items: start;
+  }
+
+  .betters-bundle-card {
+    background: {{ section.settings.card_bg }};
+    border-radius: 24px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .betters-bundle-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(30,61,47,0.12);
+  }
+
+  .betters-bundle-card--popular {
+    border-color: {{ section.settings.accent_color }};
+  }
+
+  .betters-bundle-card__popular-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: {{ section.settings.accent_color }};
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    z-index: 2;
+  }
+
+  .betters-bundle-card__image {
+    background: {{ section.settings.img_bg }};
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .betters-bundle-card__image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center bottom, rgba(196,136,46,0.1) 0%, transparent 70%);
+  }
+
+  .betters-bundle-card__body {
+    padding: 32px;
+  }
+
+  .betters-bundle-card__name {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: {{ section.settings.headline_color }};
+    margin: 0 0 8px;
+  }
+
+  .betters-bundle-card__tagline {
+    font-size: 14px;
+    color: {{ section.settings.body_color }};
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+
+  .betters-bundle-card__includes {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .betters-bundle-card__includes li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: {{ section.settings.body_color }};
+  }
+
+  .betters-bundle-card__includes li::before {
+    content: '✓';
+    color: {{ section.settings.accent_color }};
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .betters-bundle-card__price-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .betters-bundle-card__price {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: {{ section.settings.headline_color }};
+  }
+
+  .betters-bundle-card__was {
+    font-size: 16px;
+    color: {{ section.settings.body_color }};
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+
+  .betters-bundle-card__save {
+    background: rgba(196,136,46,0.12);
+    color: {{ section.settings.accent_color }};
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+  }
+
+  .betters-bundle-card__cta {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 2px solid {{ section.settings.headline_color }};
+    background: {{ section.settings.headline_color }};
+    color: #F8F4ED;
+  }
+
+  .betters-bundle-card--popular .betters-bundle-card__cta {
+    background: {{ section.settings.accent_color }};
+    border-color: {{ section.settings.accent_color }};
+  }
+
+  .betters-bundle-card__cta:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+  }
+
+  .betters-bundle-card__sub-note {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 12px;
+    color: {{ section.settings.body_color }};
+    opacity: 0.6;
+  }
+
+  .betters-bundles__guarantee {
+    margin-top: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .betters-bundles__guarantee-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: {{ section.settings.body_color }};
+  }
+
+  .betters-bundles__guarantee-icon {
+    font-size: 28px;
+  }
+
+  @media (max-width: 768px) {
+    .betters-bundles__guarantee { gap: 24px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+<section class="betters-bundles" id="shop">
+  <div class="betters-bundles__container">
+    <div class="betters-bundles__header">
+      <span class="betters-section-label" style="color: {{ section.settings.accent_color }};">{{ section.settings.eyebrow }}</span>
+      <h2 class="betters-section-title" style="color: {{ section.settings.headline_color }};">{{ section.settings.title }}</h2>
+      <p class="betters-section-body" style="color: {{ section.settings.body_color }};">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="betters-bundles__grid">
+      {% for block in section.blocks %}
+        <div class="betters-bundle-card{% if block.settings.popular %} betters-bundle-card--popular{% endif %}" {{ block.shopify_attributes }}>
+          {% if block.settings.popular %}
+            <div class="betters-bundle-card__popular-badge">Most Popular</div>
+          {% endif %}
+
+          <div class="betters-bundle-card__image">
+            {{ block.settings.emoji }}
+          </div>
+
+          <div class="betters-bundle-card__body">
+            <h3 class="betters-bundle-card__name">{{ block.settings.name }}</h3>
+            <p class="betters-bundle-card__tagline">{{ block.settings.tagline }}</p>
+
+            <ul class="betters-bundle-card__includes">
+              {% assign items = block.settings.includes | split: '|' %}
+              {% for item in items %}
+                <li>{{ item | strip }}</li>
+              {% endfor %}
+            </ul>
+
+            <div class="betters-bundle-card__price-row">
+              <span class="betters-bundle-card__price">{{ block.settings.price }}</span>
+              {% if block.settings.was_price != blank %}
+                <span class="betters-bundle-card__was">{{ block.settings.was_price }}</span>
+                <span class="betters-bundle-card__save">{{ block.settings.save_label }}</span>
+              {% endif %}
+            </div>
+
+            <a href="{{ block.settings.cta_url }}" class="betters-bundle-card__cta">
+              {{ block.settings.cta_label }}
+            </a>
+            <p class="betters-bundle-card__sub-note">{{ block.settings.sub_note }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="betters-bundles__guarantee">
+      <div class="betters-bundles__guarantee-item">
+        <span class="betters-bundles__guarantee-icon">🔒</span>
+        Secure checkout
+      </div>
+      <div class="betters-bundles__guarantee-item">
+        <span class="betters-bundles__guarantee-icon">🚚</span>
+        Free shipping over $40
+      </div>
+      <div class="betters-bundles__guarantee-item">
+        <span class="betters-bundles__guarantee-icon">💚</span>
+        30-day happiness guarantee
+      </div>
+      <div class="betters-bundles__guarantee-item">
+        <span class="betters-bundles__guarantee-icon">🌿</span>
+        100% natural ingredients
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Betters — Bundles",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#1E3D2F" },
+    { "type": "color", "id": "card_bg", "label": "Card background", "default": "#F8F4ED" },
+    { "type": "color", "id": "img_bg", "label": "Card image background", "default": "#2D5040" },
+    { "type": "color", "id": "headline_color", "label": "Headline color", "default": "#1E3D2F" },
+    { "type": "color", "id": "body_color", "label": "Body color", "default": "#3D3D3D" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#C4882E" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Shop Betters" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Find your ritual" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Start with the original or go all in with a bundle. Every order ships free over $40 and is backed by our 30-day happiness guarantee." }
+  ],
+  "blocks": [
+    {
+      "type": "bundle",
+      "name": "Bundle",
+      "settings": [
+        { "type": "checkbox", "id": "popular", "label": "Mark as Most Popular", "default": false },
+        { "type": "text", "id": "emoji", "label": "Emoji / placeholder image", "default": "🫙" },
+        { "type": "text", "id": "name", "label": "Bundle name", "default": "The Starter" },
+        { "type": "text", "id": "tagline", "label": "Tagline", "default": "One bottle. Your first 30 days." },
+        { "type": "textarea", "id": "includes", "label": "Includes list (separate with |)", "default": "1 × Betters Original (30ml)|30-day supply|Ritual guide included" },
+        { "type": "text", "id": "price", "label": "Price", "default": "$32" },
+        { "type": "text", "id": "was_price", "label": "Was price (leave blank if no discount)", "default": "" },
+        { "type": "text", "id": "save_label", "label": "Save label", "default": "Save 20%" },
+        { "type": "url", "id": "cta_url", "label": "CTA URL" },
+        { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Add to cart" },
+        { "type": "text", "id": "sub_note", "label": "Sub-note below button", "default": "Free shipping on orders over $40" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Betters — Bundles",
+      "blocks": [
+        {
+          "type": "bundle",
+          "settings": {
+            "popular": false,
+            "emoji": "🫙",
+            "name": "The Starter",
+            "tagline": "One bottle. Your first 30 days.",
+            "includes": "1 × Betters Original (30ml)|30-day supply|Ritual guide included|Free US shipping",
+            "price": "$32",
+            "was_price": "",
+            "save_label": "",
+            "cta_label": "Try Betters",
+            "sub_note": "30-day happiness guarantee"
+          }
+        },
+        {
+          "type": "bundle",
+          "settings": {
+            "popular": true,
+            "emoji": "🫙🫙",
+            "name": "The Duo",
+            "tagline": "Two months of consistent joy.",
+            "includes": "2 × Betters Original (30ml)|60-day supply|Save 15% vs single bottle|Ritual guide + herb card deck|Free US shipping",
+            "price": "$54",
+            "was_price": "$64",
+            "save_label": "Save $10",
+            "cta_label": "Get the Duo",
+            "sub_note": "Most popular · Free shipping included"
+          }
+        },
+        {
+          "type": "bundle",
+          "settings": {
+            "popular": false,
+            "emoji": "🫙🫙🫙",
+            "name": "The Full Ritual",
+            "tagline": "Everything you need for a full year of feeling better.",
+            "includes": "4 × Betters Original (30ml)|4-month supply|Save 25% vs single bottle|Ritual guide + herb card deck|Priority shipping + gift box|Early access to new formulas",
+            "price": "$96",
+            "was_price": "$128",
+            "save_label": "Save 25%",
+            "cta_label": "Commit to yourself",
+            "sub_note": "Best value · Priority shipping included"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

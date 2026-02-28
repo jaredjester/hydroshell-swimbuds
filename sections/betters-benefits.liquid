@@ -1,0 +1,248 @@
+{% comment %} Betters — Core Benefits / Science Strip {% endcomment %}
+
+<style>
+  .betters-benefits {
+    background: {{ section.settings.bg_color }};
+    padding: 100px 24px;
+  }
+
+  .betters-benefits__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .betters-benefits__header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 72px;
+  }
+
+  .betters-benefits__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .betters-benefit-tile {
+    background: {{ section.settings.tile_bg }};
+    padding: 56px 40px;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+
+  .betters-benefit-tile:hover {
+    background: {{ section.settings.tile_hover_bg }};
+  }
+
+  .betters-benefit-tile__icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .betters-benefit-tile__title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: {{ section.settings.headline_color }};
+    margin: 0 0 16px;
+    line-height: 1.2;
+  }
+
+  .betters-benefit-tile__desc {
+    font-size: 15px;
+    line-height: 1.75;
+    color: {{ section.settings.body_color }};
+    margin: 0 0 28px;
+  }
+
+  .betters-benefit-tile__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .betters-benefit-tile__stat-number {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: {{ section.settings.accent_color }};
+    line-height: 1;
+  }
+
+  .betters-benefit-tile__stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: {{ section.settings.body_color }};
+    opacity: 0.7;
+  }
+
+  .betters-benefits__bottom-strip {
+    margin-top: 56px;
+    background: {{ section.settings.headline_color }};
+    border-radius: 20px;
+    padding: 48px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .betters-benefits__strip-text h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #F8F4ED;
+    margin: 0 0 10px;
+  }
+
+  .betters-benefits__strip-text p {
+    font-size: 16px;
+    color: rgba(248,244,237,0.65);
+    margin: 0;
+  }
+
+  .betters-benefits__strip-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: {{ section.settings.accent_color }};
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 100px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .betters-benefits__strip-cta:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(196,136,46,0.35);
+  }
+
+  @media (max-width: 900px) {
+    .betters-benefits__grid { grid-template-columns: 1fr; }
+    .betters-benefits__bottom-strip { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+<section class="betters-benefits">
+  <div class="betters-benefits__container">
+    <div class="betters-benefits__header">
+      <span class="betters-section-label" style="color: {{ section.settings.accent_color }};">{{ section.settings.eyebrow }}</span>
+      <h2 class="betters-section-title" style="color: {{ section.settings.headline_color }};">{{ section.settings.title }}</h2>
+      <p class="betters-section-body" style="color: {{ section.settings.body_color }};">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="betters-benefits__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'benefit' %}
+          <div class="betters-benefit-tile" {{ block.shopify_attributes }}>
+            <span class="betters-benefit-tile__icon">{{ block.settings.icon }}</span>
+            <h3 class="betters-benefit-tile__title">{{ block.settings.title }}</h3>
+            <p class="betters-benefit-tile__desc">{{ block.settings.description }}</p>
+            {% if block.settings.stat_number != blank %}
+              <div class="betters-benefit-tile__stat">
+                <span class="betters-benefit-tile__stat-number">{{ block.settings.stat_number }}</span>
+                <span class="betters-benefit-tile__stat-label">{{ block.settings.stat_label }}</span>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="betters-benefits__bottom-strip">
+      <div class="betters-benefits__strip-text">
+        <h3>{{ section.settings.strip_title }}</h3>
+        <p>{{ section.settings.strip_subtitle }}</p>
+      </div>
+      <a href="{{ section.settings.strip_cta_url }}" class="betters-benefits__strip-cta">
+        {{ section.settings.strip_cta_label }}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Betters — Benefits",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#F8F4ED" },
+    { "type": "color", "id": "tile_bg", "label": "Tile background", "default": "#FFFFFF" },
+    { "type": "color", "id": "tile_hover_bg", "label": "Tile hover background", "default": "#F0EBE1" },
+    { "type": "color", "id": "headline_color", "label": "Headline color", "default": "#1E3D2F" },
+    { "type": "color", "id": "body_color", "label": "Body color", "default": "#3D3D3D" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#C4882E" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why it works" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Feel the difference" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "The Betters formula targets three pillars of emotional wellness: calm, clarity, and joy. Each botanical was chosen for its specific, researched impact on one or more of these pillars." },
+    { "type": "text", "id": "strip_title", "label": "CTA strip title", "default": "Try Betters risk-free for 30 days" },
+    { "type": "text", "id": "strip_subtitle", "label": "CTA strip subtitle", "default": "If you don't feel happier in 30 days, we'll give you every cent back. No questions asked." },
+    { "type": "text", "id": "strip_cta_label", "label": "CTA label", "default": "Claim your bottle" },
+    { "type": "url", "id": "strip_cta_url", "label": "CTA URL" }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Emoji icon", "default": "🌊" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Calm without fog" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Betters soothes your nervous system without sedating you. You stay sharp, present, and engaged — just with the edge taken off." },
+        { "type": "text", "id": "stat_number", "label": "Stat number", "default": "89%" },
+        { "type": "text", "id": "stat_label", "label": "Stat label", "default": "reported reduced daily stress within 2 weeks" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Betters — Benefits",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "🌊",
+            "title": "Calm without fog",
+            "description": "Betters soothes your nervous system without sedating you. You stay sharp, present, and engaged — just with the edge taken off anxiety and stress.",
+            "stat_number": "89%",
+            "stat_label": "reported reduced daily stress within 2 weeks"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "☀️",
+            "title": "Brighter mood",
+            "description": "Our saffron and lemon balm blend gently lifts serotonin activity and emotional tone, so you wake up looking forward to the day instead of dreading it.",
+            "stat_number": "4×",
+            "stat_label": "more likely to report improved mood vs placebo in studies"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "🧠",
+            "title": "Sharper focus",
+            "description": "Lion's Mane and ashwagandha work together to reduce cognitive load while supporting neuroplasticity. Less brain fog. More of you showing up fully.",
+            "stat_number": "14 days",
+            "stat_label": "average time to notice improved mental clarity"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

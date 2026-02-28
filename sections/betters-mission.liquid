@@ -1,0 +1,275 @@
+{% comment %} Betters — Brand Mission / Story {% endcomment %}
+
+<style>
+  .betters-mission {
+    background: {{ section.settings.bg_color }};
+    padding: 100px 24px;
+  }
+
+  .betters-mission__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .betters-mission__content {}
+
+  .betters-mission__pull-quote {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 400;
+    line-height: 1.3;
+    color: {{ section.settings.headline_color }};
+    margin: 0 0 32px;
+    font-style: italic;
+  }
+
+  .betters-mission__pull-quote strong {
+    font-style: normal;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .betters-mission__body {
+    font-size: 17px;
+    line-height: 1.8;
+    color: {{ section.settings.body_color }};
+    margin: 0 0 24px;
+  }
+
+  .betters-mission__signature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(30,61,47,0.12);
+  }
+
+  .betters-mission__signature-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: {{ section.settings.accent_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .betters-mission__signature-name {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 18px;
+    color: {{ section.settings.headline_color }};
+    margin: 0 0 4px;
+  }
+
+  .betters-mission__signature-title {
+    font-size: 13px;
+    color: {{ section.settings.body_color }};
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  .betters-mission__visual {
+    position: relative;
+  }
+
+  .betters-mission__card-stack {
+    position: relative;
+    height: 500px;
+  }
+
+  .betters-mission__card {
+    position: absolute;
+    border-radius: 24px;
+    padding: 36px;
+    max-width: 280px;
+  }
+
+  .betters-mission__card--1 {
+    background: {{ section.settings.accent_color }};
+    top: 0;
+    left: 10%;
+    color: #fff;
+    z-index: 3;
+    transform: rotate(-3deg);
+    box-shadow: 0 20px 40px rgba(196,136,46,0.3);
+  }
+
+  .betters-mission__card--2 {
+    background: {{ section.settings.headline_color }};
+    top: 120px;
+    left: 35%;
+    z-index: 2;
+    transform: rotate(2deg);
+    box-shadow: 0 20px 40px rgba(30,61,47,0.25);
+  }
+
+  .betters-mission__card--3 {
+    background: #FFFFFF;
+    top: 250px;
+    left: 5%;
+    z-index: 1;
+    transform: rotate(-1deg);
+    border: 1px solid rgba(30,61,47,0.1);
+    box-shadow: 0 12px 28px rgba(30,61,47,0.1);
+  }
+
+  .betters-mission__card-emoji {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .betters-mission__card-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 0 10px;
+    color: inherit;
+  }
+
+  .betters-mission__card--1 .betters-mission__card-title { color: rgba(255,255,255,0.95); }
+  .betters-mission__card--2 .betters-mission__card-title { color: #F8F4ED; }
+  .betters-mission__card--3 .betters-mission__card-title { color: #1E3D2F; }
+
+  .betters-mission__card-text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .betters-mission__card--1 .betters-mission__card-text { color: rgba(255,255,255,0.8); }
+  .betters-mission__card--2 .betters-mission__card-text { color: rgba(248,244,237,0.65); }
+  .betters-mission__card--3 .betters-mission__card-text { color: #3D3D3D; }
+
+  @media (max-width: 900px) {
+    .betters-mission__container {
+      grid-template-columns: 1fr;
+      gap: 64px;
+    }
+    .betters-mission__card-stack { height: 420px; }
+    .betters-mission__visual { order: -1; }
+  }
+</style>
+
+<section class="betters-mission">
+  <div class="betters-mission__container">
+    <div class="betters-mission__content">
+      <span class="betters-section-label" style="color: {{ section.settings.accent_color }};">{{ section.settings.eyebrow }}</span>
+
+      <blockquote class="betters-mission__pull-quote">
+        {{ section.settings.pull_quote | replace: '[strong]', '<strong>' | replace: '[/strong]', '</strong>' }}
+      </blockquote>
+
+      {% for block in section.blocks %}
+        {% if block.type == 'body_para' %}
+          <p class="betters-mission__body" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+        {% endif %}
+      {% endfor %}
+
+      <div class="betters-mission__signature">
+        <div class="betters-mission__signature-avatar">🌿</div>
+        <div>
+          <p class="betters-mission__signature-name">{{ section.settings.founder_name }}</p>
+          <p class="betters-mission__signature-title">{{ section.settings.founder_title }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="betters-mission__visual">
+      <div class="betters-mission__card-stack">
+        {% assign cards = section.blocks | where: 'type', 'value_card' %}
+        {% assign card_classes = 'betters-mission__card--1,betters-mission__card--2,betters-mission__card--3' | split: ',' %}
+        {% for block in cards %}
+          <div class="betters-mission__card {{ card_classes[forloop.index0] }}" {{ block.shopify_attributes }}>
+            <span class="betters-mission__card-emoji">{{ block.settings.emoji }}</span>
+            <h4 class="betters-mission__card-title">{{ block.settings.title }}</h4>
+            <p class="betters-mission__card-text">{{ block.settings.text }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Betters — Mission",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#F8F4ED" },
+    { "type": "color", "id": "headline_color", "label": "Headline / dark", "default": "#1E3D2F" },
+    { "type": "color", "id": "body_color", "label": "Body color", "default": "#3D3D3D" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#C4882E" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Story" },
+    { "type": "textarea", "id": "pull_quote", "label": "Pull quote (use [strong]...[/strong] for emphasis)", "default": "Happiness isn't a side effect. [strong]It's the whole point.[/strong]" },
+    { "type": "text", "id": "founder_name", "label": "Founder name", "default": "Founder, Betters" },
+    { "type": "text", "id": "founder_title", "label": "Founder title", "default": "Herbalist & Wellness Formulator" }
+  ],
+  "blocks": [
+    {
+      "type": "body_para",
+      "name": "Body paragraph",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Paragraph text", "default": "Betters was born out of a simple frustration: why do 'natural' mood supplements always taste like medicine and work like nothing?" }
+      ]
+    },
+    {
+      "type": "value_card",
+      "name": "Value card (floating)",
+      "settings": [
+        { "type": "text", "id": "emoji", "label": "Emoji", "default": "🌱" },
+        { "type": "text", "id": "title", "label": "Card title", "default": "Ethically sourced" },
+        { "type": "textarea", "id": "text", "label": "Card text", "default": "Every herb in Betters is sourced from certified organic growers." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Betters — Mission",
+      "blocks": [
+        {
+          "type": "body_para",
+          "settings": {
+            "text": "Betters was born out of a simple frustration: why do 'natural' mood supplements always taste like medicine and work like nothing? After years of formulating herbal remedies and watching friends struggle with anxiety, burnout, and just not feeling like themselves — we decided to build something different."
+          }
+        },
+        {
+          "type": "body_para",
+          "settings": {
+            "text": "We went back to the original meaning of bitters — before cocktails and aperitifs, bitters were medicine. Concentrated herbal extracts designed to balance, restore, and revitalize. We kept the tradition, dropped the alcohol, and added the most potent mood-lifting botanicals science has validated."
+          }
+        },
+        {
+          "type": "value_card",
+          "settings": {
+            "emoji": "🌱",
+            "title": "Ethically sourced",
+            "text": "Every herb is sourced from certified organic regenerative farms. We know every supplier by name."
+          }
+        },
+        {
+          "type": "value_card",
+          "settings": {
+            "emoji": "🔬",
+            "title": "Evidence-backed",
+            "text": "Every ingredient is included at its clinically studied dose — not a proprietary-blend sprinkle."
+          }
+        },
+        {
+          "type": "value_card",
+          "settings": {
+            "emoji": "💚",
+            "title": "No compromises",
+            "text": "Non-GMO. Gluten-free. No artificial flavors, colors, or sweeteners. Ever."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

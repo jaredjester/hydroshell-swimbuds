@@ -1,0 +1,240 @@
+{% comment %} Betters — Your Daily Ritual (How to Use) {% endcomment %}
+
+<style>
+  .betters-ritual {
+    background: {{ section.settings.bg_color }};
+    padding: 100px 24px;
+  }
+
+  .betters-ritual__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .betters-ritual__visual {
+    position: relative;
+  }
+
+  .betters-ritual__bottle-wrap {
+    background: {{ section.settings.card_bg }};
+    border-radius: 32px;
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .betters-ritual__bottle-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(196,136,46,0.08) 0%, transparent 70%);
+  }
+
+  .betters-ritual__bottle-placeholder {
+    font-size: 120px;
+    filter: drop-shadow(0 20px 40px rgba(30,61,47,0.15));
+    position: relative;
+    z-index: 1;
+    animation: betters-float 4s ease-in-out infinite;
+  }
+
+  @keyframes betters-float {
+    0%, 100% { transform: translateY(0px) rotate(-2deg); }
+    50% { transform: translateY(-12px) rotate(2deg); }
+  }
+
+  .betters-ritual__badge {
+    position: absolute;
+    bottom: 28px;
+    right: 28px;
+    background: {{ section.settings.accent_color }};
+    color: #fff;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(196,136,46,0.3);
+  }
+
+  .betters-ritual__content {
+    padding: 20px 0;
+  }
+
+  .betters-ritual__steps {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .betters-ritual__step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .betters-ritual__step-number {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: {{ section.settings.accent_color }};
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    font-weight: 400;
+    box-shadow: 0 4px 16px rgba(196,136,46,0.25);
+  }
+
+  .betters-ritual__step-content h4 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: {{ section.settings.headline_color }};
+    margin: 0 0 8px;
+    line-height: 1.3;
+  }
+
+  .betters-ritual__step-content p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: {{ section.settings.body_color }};
+    margin: 0;
+  }
+
+  .betters-ritual__note {
+    margin-top: 40px;
+    padding: 24px 28px;
+    background: {{ section.settings.note_bg }};
+    border-left: 4px solid {{ section.settings.accent_color }};
+    border-radius: 0 12px 12px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: {{ section.settings.body_color }};
+    font-style: italic;
+  }
+
+  @media (max-width: 900px) {
+    .betters-ritual__container {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .betters-ritual__bottle-wrap {
+      aspect-ratio: 4/3;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+</style>
+
+<section class="betters-ritual">
+  <div class="betters-ritual__container">
+    <div class="betters-ritual__visual">
+      <div class="betters-ritual__bottle-wrap">
+        <div class="betters-ritual__bottle-bg"></div>
+        <div class="betters-ritual__bottle-placeholder">🫙</div>
+        <div class="betters-ritual__badge">
+          Small<br>Batch<br>Crafted
+        </div>
+      </div>
+    </div>
+
+    <div class="betters-ritual__content">
+      <span class="betters-section-label" style="color: {{ section.settings.accent_color }};">{{ section.settings.eyebrow }}</span>
+      <h2 class="betters-section-title" style="color: {{ section.settings.headline_color }};">{{ section.settings.title }}</h2>
+      <p class="betters-section-body" style="color: {{ section.settings.body_color }};">{{ section.settings.subtitle }}</p>
+
+      <ol class="betters-ritual__steps">
+        {% for block in section.blocks %}
+          <li class="betters-ritual__step" {{ block.shopify_attributes }}>
+            <div class="betters-ritual__step-number" style="background: {{ section.settings.accent_color }};">{{ forloop.index }}</div>
+            <div class="betters-ritual__step-content">
+              <h4>{{ block.settings.step_title }}</h4>
+              <p>{{ block.settings.step_desc }}</p>
+            </div>
+          </li>
+        {% endfor %}
+      </ol>
+
+      <div class="betters-ritual__note">
+        💡 {{ section.settings.note }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Betters — Ritual",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#1E3D2F" },
+    { "type": "color", "id": "card_bg", "label": "Bottle card background", "default": "#2D5040" },
+    { "type": "color", "id": "note_bg", "label": "Note background", "default": "rgba(196,136,46,0.1)" },
+    { "type": "color", "id": "headline_color", "label": "Headline color", "default": "#F8F4ED" },
+    { "type": "color", "id": "body_color", "label": "Body color", "default": "#C8BFA8" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#C4882E" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Your Daily Practice" },
+    { "type": "text", "id": "title", "label": "Title", "default": "How to use Betters" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "A consistent ritual is where the magic happens. Three simple steps — morning or night, however your body calls." },
+    { "type": "textarea", "id": "note", "label": "Pro tip note", "default": "Most people notice a difference within 7 days. Give it 30 days for the full effect — herbs work with your body over time, not against it." }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "step_title", "label": "Step title", "default": "Shake the bottle" },
+        { "type": "textarea", "id": "step_desc", "label": "Step description", "default": "Give Betters a good shake. This activates the botanical extracts and ensures a consistent blend with every use." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Betters — Ritual",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_title": "Add 2–4 drops to your drink",
+            "step_desc": "Drop Betters into water, sparkling water, juice, tea, or even a mocktail. The earthy-sweet flavor blends seamlessly with almost anything."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_title": "Stir, breathe, sip slowly",
+            "step_desc": "Take a moment as you stir. Smell the botanicals. The ritual of mindful preparation enhances the formula's calming effect — this is intentional."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_title": "Repeat daily for best results",
+            "step_desc": "Herbal adaptogens work cumulatively. Your second week feels better than your first, and your fourth week better than your second. Consistency is the key."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
