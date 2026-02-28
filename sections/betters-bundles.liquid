@@ -219,7 +219,7 @@
     gap: 12px;
     font-size: 14px;
     font-weight: 500;
-    color: {{ section.settings.body_color }};
+    color: rgba(248, 244, 237, 0.85);
   }
 
   .betters-bundles__guarantee-icon {
@@ -235,8 +235,8 @@
   <div class="betters-bundles__container">
     <div class="betters-bundles__header">
       <span class="betters-section-label" style="color: {{ section.settings.accent_color }};">{{ section.settings.eyebrow }}</span>
-      <h2 class="betters-section-title" style="color: {{ section.settings.headline_color }};">{{ section.settings.title }}</h2>
-      <p class="betters-section-body" style="color: {{ section.settings.body_color }};">{{ section.settings.subtitle }}</p>
+      <h2 class="betters-section-title" style="color: #F8F4ED;">{{ section.settings.title }}</h2>
+      <p class="betters-section-body" style="color: rgba(248,244,237,0.75);">{{ section.settings.subtitle }}</p>
     </div>
 
     <div class="betters-bundles__grid">
@@ -248,7 +248,8 @@
 
           <div class="betters-bundle-card__image">
             {% assign bundle_imgs = 'betters-hero-bottle.jpg,betters-lifestyle-drink.jpg,betters-mission-botanicals.jpg' | split: ',' %}
-            <img src="{{ bundle_imgs[forloop.index0] | asset_url }}" alt="{{ block.settings.name }}" loading="lazy">
+            {% assign bundle_img = bundle_imgs[forloop.index0] %}
+            <img src="{{ bundle_img | asset_url }}" alt="{{ block.settings.name }}" loading="lazy">
             <span class="betters-bundle-card__image-emoji" style="font-size:48px;position:relative;z-index:2;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));">{{ block.settings.emoji }}</span>
           </div>
 
@@ -265,10 +266,10 @@
 
             <div class="betters-bundle-card__price-row">
               <span class="betters-bundle-card__price">{{ block.settings.price }}</span>
-              {% if block.settings.was_price != blank %}
+              {% unless block.settings.was_price == blank or block.settings.was_price == '—' %}
                 <span class="betters-bundle-card__was">{{ block.settings.was_price }}</span>
                 <span class="betters-bundle-card__save">{{ block.settings.save_label }}</span>
-              {% endif %}
+              {% endunless %}
             </div>
 
             <a href="{{ block.settings.cta_url }}" class="betters-bundle-card__cta">

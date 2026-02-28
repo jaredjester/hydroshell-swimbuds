@@ -59,15 +59,22 @@
 
   .betters-reviews__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  @media (min-width: 640px) {
+    .betters-reviews__grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
   }
 
   .betters-review-card {
     background: {{ section.settings.card_bg }};
     border-radius: 20px;
     padding: 36px 32px;
-    border: 1px solid rgba(30,61,47,0.07);
+    border: 1px solid rgba(30,61,47,0.12);
+    box-shadow: 0 4px 20px rgba(30,61,47,0.07);
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -76,7 +83,7 @@
 
   .betters-review-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(30,61,47,0.1);
+    box-shadow: 0 16px 40px rgba(30,61,47,0.13);
   }
 
   .betters-review-card--featured {
@@ -184,7 +191,7 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: {{ section.settings.body_color }};
-    opacity: 0.5;
+    opacity: 0.75;
     margin-bottom: 28px;
   }
 
@@ -197,12 +204,17 @@
   }
 
   .betters-reviews__press-logo {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    color: {{ section.settings.body_color }};
-    opacity: 0.3;
+    letter-spacing: 0.12em;
+    color: {{ section.settings.headline_color }};
+    opacity: 0.55;
     text-transform: uppercase;
+    transition: opacity 0.2s ease;
+  }
+
+  .betters-reviews__press-logo:hover {
+    opacity: 0.9;
   }
 
   @media (max-width: 768px) {
@@ -235,6 +247,7 @@
 
     <div class="betters-reviews__grid">
       {% for block in section.blocks %}
+        {% unless block.type == 'review' %}{% continue %}{% endunless %}
         <div class="betters-review-card{% if block.settings.featured %} betters-review-card--featured{% endif %}" {{ block.shopify_attributes }}>
           <div class="betters-review-card__stars">
             ★★★★★
